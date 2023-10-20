@@ -1,8 +1,12 @@
+/*header*/
+body{
+    background-color: #1D3461;
+}
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-
 .header{
     height: 100px;
     background-color: white;
@@ -13,7 +17,6 @@
 #logo-azul{
     height: 42px;
     width: 200px;
-    
     padding-left: 37px;
 }
 #login{
@@ -29,3 +32,38 @@
 a:link{
     color: #1D3461;
 }
+
+/*sessão 2*/
+/*
+.sessao-dois{
+    height: 100%;
+    background-color: #1D3461;
+}
+.sessao-dois-content{
+    top: 300px;
+}
+.sessao-dois-content img{
+    width: 620px;
+    height: 800px;
+    padding-left: 99px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 999;
+}
+#retangulo{
+    width: 400px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+}
+#retangulo2{
+    width: 400px;
+    height: 427px;
+    top: 470px;
+    left: 392px;
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+}
+*/
