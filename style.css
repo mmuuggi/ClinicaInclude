@@ -8,29 +8,68 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
-
+.link{
+    justify-content: left;
+}
 .header{
     height: 100px;
     background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
 }
 #logo-azul{
     height: 42px;
     width: 200px;
     padding-left: 37px;
-
+    justify-self: left;
 }
 #login{
-font-family: Trebuchet MS;
-font-size: 20px;
-font-weight: 700;
-line-height: 23px;
-letter-spacing: 0em;
-text-align: left;
-color: #1D3461;
+    font-family: Trebuchet MS;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+    background-color: #1D3461;
+    color: white;
+    margin-right: 25px;
 }
+
+#cadastro{
+    font-family: Trebuchet MS;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    background-color: #1D3461;
+    color: white;
+}
+.botoes{
+    display: flex;
+}
+.botao{
+    background-color: #1D3461;
+    color: white;
+    border: none;
+    margin-right: 50px;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 15px 60px;
+    justify-items: right;
+}
+#cadastro:hover{
+    background-color: rgba(255, 255, 255, 0.726);
+    color: #1D3461;
+    transition: ease-in-out 0.5s;
+}
+#login:hover{
+    background-color: rgba(255, 255, 255, 0.726);
+    color: #1D3461;
+    transition: ease-in-out 0.5s;
+}
+/*sessão 1*/
+
 #Icons{
     margin-top: 20px;
 }
@@ -67,37 +106,78 @@ a:link{
 }
 
 /*sessão 2*/
-/*
+
 .sessao-dois{
-    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 140vh;
     background-color: #1D3461;
+    position: relative;
 }
-.sessao-dois-content{
-    top: 300px;
+.esquerda{
+    flex: 1;
 }
-.sessao-dois-content img{
+.foto-include{
+    flex: 1;
+    position: absolute;
+    top: 100px;
+}
+.esquerda img{
     width: 620px;
-    height: 800px;
-    padding-left: 99px;
+    height: 853px;
+    left: 99px;
+    top: 70px;
     border-radius: 20px;
     position: absolute;
     z-index: 999;
 }
-#retangulo{
+.foto-include:nth-child(3){
+top: 540px;
+}
+#retangulo-um{
     width: 400px;
     height: 200px;
+    left: 60px;
+    top: 30px;
     border-radius: 20px;
     background-color: white;
     position: absolute;
 }
-#retangulo2{
+#retangulo-dois{
     width: 400px;
     height: 427px;
-    top: 470px;
-    left: 392px;
+    left: 352px;
     border-radius: 20px;
     background-color: white;
     position: absolute;
 }
-*/
-
+.direita{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.direita h1{
+    font-family: Trebuchet MS;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: white;
+    margin-bottom: 200px;
+}
+.direita p{
+    font-family: Trebuchet MS;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: white;
+    margin-bottom: 140px;
+}
+.direita img{
+    margin-bottom: 100px;
+}
