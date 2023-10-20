@@ -5,13 +5,27 @@
 
 .header{
     height: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#logo-azul{
+    height: 42px;
+    width: 200px;
+    
+    padding-left: 37px;
 }
 #login{
-font-family: Trebuchet MS;
-font-size: 20px;
-font-weight: 700;
-line-height: 23px;
-letter-spacing: 0em;
-text-align: left;
-color: #1D3461;
+    font-family: Trebuchet MS;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #1D3461;
+    padding-right: 100px;
+}
+a:link{
+    color: #1D3461;
 }
