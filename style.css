@@ -1,20 +1,14 @@
 /*header*/
 body{
     background-color: #1D3461;
+    overflow-x: hidden;
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-<<<<<<< HEAD
-body{
-    background: #1D3461;
-}
-.header{
-    background-color: white;
-    height: 100px;
-=======
+
 .header{
     height: 100px;
     background-color: white;
@@ -26,7 +20,7 @@ body{
     height: 42px;
     width: 200px;
     padding-left: 37px;
->>>>>>> 51f0df6f464d28a3519b80ddda1d3f6f534d560f
+
 }
 #login{
 font-family: Trebuchet MS;
@@ -59,8 +53,7 @@ color: #1D3461;
     height: 743px;
     margin-left: -156.12px;
 }
-<<<<<<< HEAD
-=======
+
 a:link{
     color: #1D3461;
 }
@@ -99,4 +92,4 @@ a:link{
     position: absolute;
 }
 */
->>>>>>> 51f0df6f464d28a3519b80ddda1d3f6f534d560f
+
