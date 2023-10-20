@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
 }
-
+body{
+    background: #1D3461;
+}
 .header{
+    background-color: white;
     height: 100px;
 }
 #login{
@@ -14,4 +17,26 @@ line-height: 23px;
 letter-spacing: 0em;
 text-align: left;
 color: #1D3461;
+}
+#Icons{
+    width: 200px;
+    height: 200px;
+    margin-left: 116px;
+    margin-right: 112px;
+    margin-top: 40px;
+}
+.consulta{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 241px;
+    left: 225px;
+    background-color: #f6f7f8bd;
+    align-items: center;
+    border-radius: 10px;
+}
+#image1{
+    width: 1612.24px;
+    height: 743px;
+    margin-left: -156.12px;
 }
