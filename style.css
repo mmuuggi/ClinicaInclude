@@ -106,7 +106,97 @@ a:link{
     font-size: 40px;
 }
 
+#medicosimg{
+    display: flex;
+    justify-content: flex-end;
+}
+#midcimg{
+    width: 400px;
+    height: 85px;
+    position: absolute;
+    margin-top: 280px;
+    margin-right: 170px;
+}
+#retfora{
+    margin-left: 200px;
+    margin-top: -100px;
+    width: 403px;
+    height: 584px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    background-color: #1D3461;
+    border-radius: 20px;
+    font-family: Trebuchet MS;
+}
+#retdentro{
+    margin-top: 15px;
+    display: flex;
+    background-color: #1D3461;
+    width: 360px;
+    height: 360px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2), -2px -2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+#textProc{
+    color: white;
+    display: flex;
+    position: absolute;
+    margin-top: 519px;
+    flex-direction: column;
+    align-items: center;
+}
+#proch1{
+    margin: 20px;
+    font-size: 40px;
+}
+#procspan{
+    color: white;
+    font-size: 23px;
+}
+#exafora{
+    margin-left: 865px;
+    margin-top: -580px;
+    width: 403px;
+    height: 700px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    background-color: #1D3461;
+    border-radius: 20px;
+    font-family: Trebuchet MS;
+}
+#exadentro{
+    margin-top: 15px;
+    display: flex;
+    background-color: #1D3461;
+    width: 360px;
+    height: 360px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2), -2px -2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+#Clinica{
+    font-family: 'Segoe Script';
+    color: white;
+    font-size: 58px;
+    position: absolute;
+    margin-top: 226px;
+    margin-right: 346px;
+}
+.separacao{
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 100vw solid transparent;
+    border-bottom: 6vw solid #1d3461;
+    margin-top: -6vw;
+}
 /*sessão 2*/
+
 
 .sessao-dois{
     display: flex;
@@ -115,8 +205,7 @@ a:link{
     height: 140vh;
     background-color: #1D3461;
     position: relative;
-    margin-top: 50px;
-    box-shadow: 0px 5px 15px black;
+    margin-top: 115px;
 }
 .esquerda{
     flex: 1;
@@ -189,7 +278,7 @@ top: 540px;
 
 .sessao-tres{
     display: flex;
-    height: 140vh;
+    height: 180vh;
     background-color: #1D3461;
     position: relative;
     align-items: center;
@@ -248,3 +337,4 @@ top: 540px;
     background-color: #F6F7F8;
     border-radius: 20px;
 }
+
