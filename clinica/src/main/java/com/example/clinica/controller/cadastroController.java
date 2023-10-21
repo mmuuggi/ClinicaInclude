@@ -14,6 +14,7 @@ import java.util.List;
 public class cadastroController {
     @Autowired
     private UsersRepository repository;
+    @CrossOrigin(origins = "http://127.0.0.1:5500", allowedHeaders = "Content-Type")
     @PostMapping
     public void cadastro(@RequestBody UsersRequestDTO data){
         Users usersData = new Users(data);
