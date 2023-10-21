@@ -1,13 +1,19 @@
 function enviarCadastro() {
-	const nome = document.getElementById("email").value;
+	const email = document.getElementById("email").value;
+	const name = document.getElementById("name").value;
 	const cpf = document.getElementById("cpf").value;
+	const password = document.getElementById("password").value;
 
 	const data = {
-		nome: nome,
-		cpf: cpf
+		name: name,
+		email: email,
+		password: password,
+		cpf: cpf,
+		role: "Doctor",
+		especialidade: "Ortopedista"
 	};
 
-	fetch('localhost:8080/cadastro', {
+	fetch('http://localhost:8080/cadastro', {
 		method: 'POST',
 		body: JSON.stringify(data),
 		headers: {
@@ -16,12 +22,10 @@ function enviarCadastro() {
 	})
 	.then(response => {
 		if (response.status === 200) {
-			document.getElementById("mensagem").textContent = "Cadastrado com sucesso!";
+			alert("Cadastrado");
 		} else {
-			document.getElementById("mensagem").textContent = "Erro ao cadastrar.";
+			alert("erro");
 		}
-	})
-	.catch(error => {
-		console.error('Erro:', error);
-		document.getElementById("mensagem").textContent = "Erro ao cadastrar.";
 	});
+	
+}
