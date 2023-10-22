@@ -23,12 +23,13 @@ function enviarCadastro() {
 	.then(response => {
 		if (response.status === 201) {
 			alert("Usuário Cadastrado");
-		} else if(response.status === 500){
+		} else if(response.status === 409){
 			alert("Email já existe!");
+		} else if(response.status === 500){
+			alert("OII");
 		}
-
 		else {
-			alert("Email inválido" + response.status);
+			alert("Email inválido");
 		}
 	});
 	
