@@ -28,14 +28,6 @@ password.addEventListener("keyup", ()=>{
         textPassword.textContent = ''
     }
 })
-cpf.addEventListener("keypress", ()=>{
-    let cpflength = cpf.value.length
-    if(cpflength === 3 || cpflength === 7){
-        cpf.value += '.'
-    }else if(cpflength === 11){
-        cpf.value += '-'
-    }
-})
 
 function validacaoEmail(email){
 let emailPattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi
@@ -46,3 +38,18 @@ function validacaoPassword(password){
 let passwordPattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,16})$/;
 return passwordPattern.test(password)
 }
+function formatarCPF(input) {
+    var value = input.value.replace(/[^0-9]/g, ''); // Remove tudo que não é número
+    var formattedValue = '';
+  
+    for (var i = 0; i < value.length; i++) {
+      if (i === 3 || i === 6) {
+        formattedValue += '.'; // Adiciona ponto na 3ª e 7ª posição
+      } else if (i === 9) {
+        formattedValue += '-'; // Adiciona hífen na 11ª posição
+      }
+      formattedValue += value[i];
+    }
+  
+    input.value = formattedValue;
+  }

@@ -34,7 +34,7 @@ body{
     width: 80%;
     height: 30px;
     border: none;
-    margin:40px 100px;
+    margin:40px 55px;
   }
 .inputlog input{
     width: 100%;
@@ -53,7 +53,6 @@ body{
 }
 #formajust{
     margin-top: 40px;
-    margin-left: -100px;
 }
 #entrar{
     color: #1D3461;
@@ -65,15 +64,27 @@ body{
     font-family: "Trebuchet MS";
 }
 .linkcadastro{
-    margin-top: 10px;
-    margin-left: 85px;
-    display: flex;
-    justify-content: center;
+    position: relative;
+    width: 80%;
+    height: 30px;
+    border: none;
+    margin: 40px 105px;
     
 }
-.linkcadastro a{
+.linkcadastro label{
     font-size: 20px;
-    font-family: "Trebuchet MS";
+} 
+.linkcadastro input{
+    margin-left: 7px;
+    width: 75%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    background-color: #0000004D;
+    border-radius: 15px;
+    padding-left: 20px;
+    font-size: 16px;
     color: #1D3461;
 }
 #BackButton{
@@ -90,17 +101,12 @@ body{
     display: flex;
 }
 #textForm{
-    display: flex;
     font-size: 15px;
-    justify-content: space-around;
-    margin-left: 90px;
 }
 #loginajust{
-    margin-left: 170px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: nowrap;
 }
 #backajust{
     width: 60px;
