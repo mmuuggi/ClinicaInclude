@@ -1,5 +1,6 @@
-package com.example.clinica.users;
+package com.example.clinica.entity;
 
+import com.example.clinica.repository.UsersRequestDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
