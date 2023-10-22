@@ -13,7 +13,7 @@ body{
     align-items: center;
 }
 .login_paciente h1{
-    font-size: 40px;
+    font-size: 35px;
 }
 .ajustlog{
     margin-top: 80px;
@@ -52,7 +52,7 @@ body{
     font-size: 20px;
 }
 #formajust{
-    margin-top: -50px;
+    margin-top: 40px;
     margin-left: -100px;
 }
 #entrar{
@@ -78,7 +78,7 @@ body{
 }
 #BackButton{
     position: absolute;
-    margin-right: 425px;
+    margin-right: 510px;
     margin-top: 19px;
 }
 #textEmail{
@@ -105,4 +105,9 @@ body{
 #backajust{
     width: 60px;
     height: 60px;
+}
+#exit{
+    display: flex;
+    margin-top: -65px;
+    margin-left: 500px;
 }

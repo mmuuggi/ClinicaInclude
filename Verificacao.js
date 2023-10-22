@@ -1,4 +1,5 @@
 let email = document.getElementById('email');
+let cpf = document.getElementById('cpf');
 let password = document.getElementById('password');
 let form = document.querySelector('form');
 
@@ -25,6 +26,14 @@ password.addEventListener("keyup", ()=>{
         textPassword.textContent ="Senha com 8 caracteres incluindo números e letras maiúsculas."
     }else{
         textPassword.textContent = ''
+    }
+})
+cpf.addEventListener("keypress", ()=>{
+    let cpflength = cpf.value.length
+    if(cpflength === 3 || cpflength === 7){
+        cpf.value += '.'
+    }else if(cpflength === 11){
+        cpf.value += '-'
     }
 })
 

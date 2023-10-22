@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastrogeral.css">
+    <title>Login Paciente</title>
+</head>
+<body>
+    <main>
+        <div id="centerimg">
+            <img src="image/Logo Include.svg" alt="">
+        </div>
+        <div class="ajustlog">
+            <div class="login_paciente">
+                <h1>Bem Vindo ao Cadastro</h1>
+                <div id="BackButton">
+                <a href="#" ><img id="backajust" src="image/BackButton.svg" alt=""></a>
+            </div>
+            <div id="exit">
+                <a href="#"><img id="backajust" src="image/ExitButton.svg" alt=""></a>
+            </div>
+                <form id="formajust" action="">
+                    <div class="inputlog">
+                        <label for="">Nome Completo:</label>
+                        <input id="email" type="email" placeholder="Digite seu Nome">
+                    </div>
+                    <div class="inputlog">
+                        <label for="">E-mail:</label>
+                        <input id="email" type="email" placeholder="Digite seu E-mail">
+                        <small id="textEmail"></small>
+                    </div>
+                    <div class="inputlog">
+                        <label for="">CPF:</label>
+                        <input id="cpf" type="email" autocomplete="off" maxlength="14" placeholder="Digite seu CPF">
+                        <small id="textCpf"></small>
+                    </div>
+                    <div class="inputlog" >
+                        <label for="">Senha:</label>
+                        <input id="password" type="password" placeholder="Digite sua senha">
+                        <small id="textPassword"></small>
+                    </div>
+                    <div id="loginajust">
+                        <button id="entrar" type="submit">Login</button>
+                        <small id="textForm"></small>
+                    </div>
+                    <div class="linkcadastro">
+                        <a href="#">Ainda não tenho um cadastro!</a>
+                    </div>
+                </form>
+                <script src="Verificacao.js"></script>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
