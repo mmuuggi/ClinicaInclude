@@ -1,22 +1,19 @@
 package com.example.clinica.services;
 
 import lombok.Getter;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Getter
 
-public class LoginDTO {
+public class ApiResponse {
     private String email;
-    private String password;
     private String role;
     private String message;
 
-    public LoginDTO(String email, String password, String role) {
+    public ApiResponse(String email, String role) {
         this.email = email;
-        this.password = password;
         this.role = role;
     }
-    public LoginDTO(String message) {
+    public ApiResponse(String message) {
         this.message = message;
     }
 }
