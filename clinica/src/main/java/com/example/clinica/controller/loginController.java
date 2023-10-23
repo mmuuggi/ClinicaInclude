@@ -29,7 +29,7 @@ public class loginController{
                 return new ResponseEntity<>(loginDTO, HttpStatus.NOT_FOUND);
             }else{
                 if (Objects.equals(user.getPassword(), data.password())){
-                    ApiResponse loginDTO = new ApiResponse(data.email(), user.getRole());
+                    ApiResponse loginDTO = new ApiResponse(data.email(), user.getName(), user.getRole());
                     return new ResponseEntity<>(loginDTO, HttpStatus.OK);
                 }else{
                     ApiResponse loginDTO = new ApiResponse("Senha inválida");
