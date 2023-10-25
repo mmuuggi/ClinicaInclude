@@ -1,0 +1,116 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: #1D3461;
+}
+.pefilPac{
+    display: flex;
+    justify-content: center;
+    color: #1D3461;
+    font-family: 'Trebuchet MS';
+}
+#perfil{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 80px;
+    height: 850px;
+    width: 1200px;
+    border-radius: 20px;
+}
+#bloco{
+    display: flex;
+    width: 297px;
+    height: 297px;
+    background-color: #F6F7F8;
+    border-radius: 20px;
+    box-shadow: 0px 0px 6px;
+    margin: 40px;
+    margin-left: 60px;
+    justify-content: center;
+}
+#hpacient{
+    position: absolute;
+    top: 550px;
+}
+.pefilPac h1{
+    font-size: 40px;
+}
+#datapac1{
+    display: flex;
+    width: 300px;
+    height: 150px;
+    background-color: #F6F7F8;
+    box-shadow: 0px 0px 6px;
+    margin: 40px;
+    margin-left: 60px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#datapac2{
+    display: flex;
+    width: 300px;
+    height: 150px;
+    background-color: #F6F7F8;
+    box-shadow: 0px 0px 6px;
+    margin: 40px;
+    margin-left: 60px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#datapac3{
+    display: flex;
+    width: 300px;
+    height: 150px;
+    background-color: #F6F7F8;
+    box-shadow: 0px 0px 6px;
+    margin: 40px;
+    margin-left: 60px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#Datas{
+    display: flex;
+    
+}
+#blocoAlign{
+    display: flex;
+    align-items: center ;
+}
+#ajustImg2{
+    width: 237px;
+    height: 50px;
+}
+.ButtonSty{
+    display: flex;
+    justify-content: space-around;
+}
+.ButtonSty a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 300px;
+    border-radius: 20px;
+    background-color: #1D3461;
+    font-family: 'Trebuchet MS';
+    font-size: 25px;
+    color: white;
+}
+#h2Ajust{
+    font-size: 30px;
+    margin-left: 50px;
+}
+#ajustImas{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
