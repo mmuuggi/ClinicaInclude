@@ -8,12 +8,14 @@
 
 body{
     background-color: #1D3461;
+    
 }
 
 .janela{
     width: 1220px;
-    height: 140vh;
+    height: 1200px;
     top: 102px;
+    bottom: 102px;
     left: 113px;
     border-radius: 20px;
     background-color: #F6F7F8;
@@ -113,10 +115,14 @@ body{
 }
 .pacientes-diario{
     width: 300px;
-    height: 150px;
+    height: 180px;
     background-color: #F6F7F8;
     box-shadow: 0px 4px 4px 0px #00000040;
     box-shadow: 0px 4px 4px 0px #00000040 inset;
+    cursor:pointer;
+}
+.pacientes-container:hover{
+    
 }
 
 #checkup{
@@ -168,7 +174,7 @@ body{
 
 .cadastro-janela{
     width: 517px;
-    height: 335px;
+    height: 360px;
     border-radius: 20px;
     background-color: #F6F7F8;
     box-shadow: 0px 4px 4px 0px #00000040;
@@ -210,6 +216,17 @@ body{
     display: flex;
     justify-content: space-between;
     box-shadow: 0px 4px 4px 0px #00000040;
+    cursor:pointer;
+}
+
+.opcao-especialidade:hover{
+    color: #F6F7F8;
+    background-color: #1D3461;
+    transition: ease-in-out 300ms;
+}
+.opcao-especialidade:hover p{
+    color: #F6F7F8;
+    transition: ease-in-out 300ms;
 }
 .opcao-especialidade p{
     font-family: Trebuchet MS;
@@ -218,7 +235,6 @@ body{
     line-height: 17px;
     letter-spacing: -0.03em;
     text-align: left;
-    
 }
 
     
