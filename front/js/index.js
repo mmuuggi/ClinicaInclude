@@ -24,11 +24,23 @@ function login(){
         }
     })
     .then(data =>{
+        const consultas = data.consultas;
+        if(consultas != null){
+            alert(1);
+        }
+        const datasEspecialidades = consultas.map(consulta => ({
+            data: consulta.data_consulta,
+            especialidade: consulta.especialidade
+        }));
+        localStorage.setItem('consultas', JSON.stringify(datasEspecialidades));
         localStorage.setItem('name', data.name);
         localStorage.setItem('role', data.role);
         localStorage.setItem('especialidade', data.especialidade);
-        alert(localStorage.getItem('especialidade'));
+        localStorage.setItem('DoisUm', JSON.stringify(consultas));
+
         window.location.href = 'homePageLogada.html';
+
+        
     })
     .catch(error =>{
         alert(error.message);
@@ -70,6 +82,9 @@ function cadastro(){
     })
     .then(response =>{
         if(response.status == 201){
+            localStorage.setItem('name', data.name);
+            localStorage.setItem('role', data.role);
+            localStorage.setItem('especialidade', data.especialidade);
             window.location.href = 'homePageLogada.html';
         }else{
             throw new Error("Erro na solicitação: " + response.body)
@@ -83,5 +98,6 @@ function cadastro(){
 function deslogar(){
     localStorage.setItem('name', '');
     localStorage.setItem('role', '');
+    localStorage.setItem('especialidade', '');
     window.location.href = 'homePage.html';
 }

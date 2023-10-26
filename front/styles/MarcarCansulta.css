@@ -1,0 +1,421 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+a{
+    text-decoration: none;
+}
+body{
+    background-color: #F6F7F8;
+}
+.Headermarca{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 7px 20px 2px rgba(0, 0, 0, 0.25), 0px 0px 0px 0px rgba(0, 0, 0, 0.25) inset;
+}
+#LogoInclude{
+    margin-left: 15px;
+    width: 200px;
+    height: 42px;
+}
+#ExitButton{
+    margin-right: 15px;
+    width: 48.91px;
+    height: 48.91px;
+
+}
+#Openmoji{
+    width: 60px;
+    height: 60px;
+}
+.openmoji_person{
+    display: flex;
+    align-items: center;
+}
+.openmoji_person div{
+    margin-left: 600px;
+    display: flex;
+    align-items: center;
+    width: 195px;
+    height: 45px;
+    border-radius: 10px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #1D3461;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+
+}
+.openmoji_person h2{
+    color: #F6F7F8;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.75px;
+}
+.center {
+    display: flex;
+    justify-content: space-around;
+}
+
+.P1 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 252px;
+    align-items: flex-start;
+    height: 680px;
+}
+
+.P1 h1 {
+    color: #172A4E;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.72px;
+}
+
+.Filtrar {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.Filtrar div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    border: 2px solid #F6F7F8;
+    background: #F6F7F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    margin: 20px;
+    margin-left: 0px;
+}
+
+.Filtrar h2 {
+    color: #00000066;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.75px;
+}
+.Filtrar a{
+    text-decoration: none;
+}
+.EscolhaData {
+    width: 510px;
+    border-radius: 5px;
+    background: #F6F7F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+
+}
+
+.EscolhaEspecialidade02{
+    display: flex;
+    width: 720px;
+    flex-wrap: wrap;
+}
+.EscolhaEspecialidade div{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 510px;
+    padding-left: 10px;
+    border-radius: 5px;
+    background: #F6F7F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+.EscolhaEspecialidade h2{
+    color: #1D3461;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.45px;
+}
+.EscolhaEspecialidade02 div{
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    background: #1D3461;
+}
+.EscolhaEspecialidade02 img{
+    width: 73px;
+    height: 73px;
+}
+.EscolhaEspecialidade02 h2{
+    color: #FFF;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.45px;
+}
+.EscolhaEspecialidade02 h3{
+    color: #FFF;
+    font-family: Trebuchet MS;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.75px;
+}
+.EscolhaEspecialidade02 span{
+    color: #FFF;
+    font-family: Trebuchet MS;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px;
+}
+.Escolhamedico{
+    display: flex;
+    width: 600px;
+    flex-wrap: wrap;
+    color: white;
+    font-family: Trebuchet MS;
+}
+.Escolhamedico div{
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 150px;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #1D3461;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
+
+}
+.Escolhamedico img{
+    
+    width: 102px;
+    height: 102px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.Escolhamedico h2{
+    font-size: 15px;
+}
+.Escolhamedico h3{
+    font-size: 8px;
+}
+.Escolhamedico a{
+    color: white;
+}
+.Escolhamedico02{
+    display: flex;
+    width: 600px;
+    flex-wrap: wrap;
+    color: white;
+    font-family: Trebuchet MS;
+}
+.horaData{
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 670px;
+    height: 520px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #1D3461;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+.Escolhamedico02 img{
+    width: 102px;
+    height: 102px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.boxData{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.boxData div{
+    margin: 15px;
+    display: flex;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    border: 2px solid #00000066;
+    background: #F6F7F8;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.boxData h2{
+    color: #00000066;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.72px;
+}
+.boxData h3{
+    color: #00000066;
+    font-family: Trebuchet MS;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.48px;
+}
+.boxData span{
+    color: #00000066;
+    font-family: Trebuchet MS;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.24px;
+}
+.boxhorario{
+    border-radius: 5px;
+    background: #F6F7F8;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+
+}
+.horario{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.horario div{
+    margin: 15px;
+    display: flex;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    border: 2px solid #00000066;
+    background: #F6F7F8;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.horario h2{
+    color: #00000066;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.72px;
+}
+.Escolha{
+    display: flex;
+    flex-direction: column;
+    margin-top: 300px;
+    align-items: flex-start;
+    height: 680px;
+}
+.boxDaBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.boxEscolha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 360px;
+    height: 250px;
+    border-radius: 5px;
+    background: #F6F7F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+.boxEscolha div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 60px;
+    border-radius: 20px;
+    background: #F6F7F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+
+}
+.boxEscolha h2{
+    color: #1D3461;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.48px;
+}
+.teteinput{
+    display: flex;
+    margin-top: 20px;
+}
+.teteinput textarea{
+    width: 340px;
+    height: 150px;
+    border-radius: 10px;
+    background: #1D3461;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    padding-top: 20px;
+    color: white;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    resize: none;
+}
+textarea::placeholder {
+    color: #999; 
+    font-style: italic;
+    font-size: 15px; 
+}
+.boxDaBox button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 80px;
+    margin-top: 20px;
+    color: #FFF;
+    font-family: Trebuchet MS;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.9px;
+    border-radius: 20px;
+    background: #1D3461;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: none;
+    outline: none;
+}
