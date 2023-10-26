@@ -24,16 +24,26 @@ function login(){
         }
     })
     .then(data =>{
-        window.location.href = 'homePageLogada.html';
         localStorage.setItem('name', data.name);
-        localStorage.setItem('role', data.role)
+        localStorage.setItem('role', data.role);
+        localStorage.setItem('especialidade', data.especialidade);
+        alert(localStorage.getItem('especialidade'));
+        window.location.href = 'homePageLogada.html';
     })
     .catch(error =>{
         alert(error.message);
     });
 }
-function paginaCliente(){
-    window.location.href = 'perfilPaciente.html';
+
+
+function perfilPage(){
+    if(localStorage.getItem('role') == 'Paciente'){
+        window.location.href='perfilPaciente.html';
+    }else if(localStorage.getItem('role') =='Médico'){
+        window.location.href='perfilDoutor.html'
+    }else{
+        console.log(localStorage.getItem('name'));
+    }
 }
 
 function cadastro(){
@@ -68,4 +78,10 @@ function cadastro(){
     .catch(error =>{
         alert(error.message);
     });
+}
+
+function deslogar(){
+    localStorage.setItem('name', '');
+    localStorage.setItem('role', '');
+    window.location.href = 'homePage.html';
 }
