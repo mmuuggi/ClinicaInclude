@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastrogeral.css">
+    <title>Login Paciente</title>
+</head>
+<body>
+    <main>
+        <div id="centerimg">
+            <img src="image/Logo Include.svg" alt="">
+        </div>
+        <div class="ajustlog">
+            <div class="login_paciente">
+                <h1>Bem Vindo ao Cadastro</h1>
+                <div id="BackButton">
+                <a href="HomePage.html" ><img id="backajust" src="image/BackButton.svg" alt=""></a>
+            </div>
+            <div id="exit">
+                <a href="HomePage.html"><img id="backajust" src="image/ExitButton.svg" alt=""></a>
+            </div>
+                <form id="formajust" action="">
+                    <div class="inputlog">
+                        <label for="">Nome Completo:</label>
+                        <input  type="text" >
+                    </div>
+                    <div class="inputlog">
+                        <label for="">E-mail:</label>
+                        <input id="email" type="email" >
+                        <small id="textEmail"></small>
+                    </div>
+                    <div class="inputlog">
+                        <label for="">CPF:</label>
+                        <input id="cpf"type="text" oninput="formatarCPF(this);"autocomplete="off" maxlength="14">
+                        <small id="textCpf"></small>
+                    </div>
+                    <div class="inputlog" >
+                        <label for="">Senha:</label>
+                        <input id="password" type="password" >
+                        <small id="textPassword"></small>
+                    </div>
+                    <div class="linkcadastro">
+                        <label>é um servidor?! Utilize sua chave de admin!!!</label>
+                        <input id="idServidor" type="text" >
+                    </div>
+                    <div id="loginajust">
+                        <button id="entrar" type="submit">Cadastrar</button>
+                        <small id="textForm"></small>
+                    </div>
+                    
+                </form>
+                
+            </div>
+        </div>
+    </main>
+    <script src="Verificacao.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

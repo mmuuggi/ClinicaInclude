@@ -1,0 +1,75 @@
+*{
+    margin: 0%;
+    pad: 0%;
+    box-sizing: border-box;
+    text-decoration:none;
+}
+body{
+    background-color: #1D3461;
+    font-size: 100%;
+}
+.logo{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+    zoom: 0.3;
+    top: 500px;
+}
+.b1{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    zoom: 0.6;
+
+}
+nav{margin-top: -70px;
+    display: flex;
+    justify-content: center;
+}
+.parte{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+    zoom: 0.7;
+    position: relative;
+} 
+.b2{
+    margin-top: -100px;
+    margin-left: 440px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+    zoom: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+   
+}
+.f1{
+    margin-top: -35px;
+    display: flex;
+    padding: 30px;
+    zoom: 1;
+    position: absolute;
+    z-index: 2;
+}
+.b6{
+    margin-top: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+    zoom: 0.7;
+
+}
+a{
+    padding: 45px;
+}
