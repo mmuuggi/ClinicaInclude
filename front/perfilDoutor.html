@@ -22,7 +22,19 @@
                     <img src="img/janela-icons/Fotinha.svg" alt="">
                     <p id="name" class="nome-especialidade">Nome:</p>
                     <p id="especialidade">Esp</p>
-                    <button class="botão-cadastro">Cadastrar especialidade</button>
+                    <button id="especialidadeButton" class="botão-cadastro" onclick="cadastrarEspecialidade()">Cadastrar especialidade</button>
+                    <div id="janelaCadastro" class="cadastro-janela">
+                        <h1>Escolha sua especialidade</h1>
+                        <h2>(essa escolha não poderá ser alterada no futuro)</h2>
+                        <div class="especialidade-container">
+                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Psicólogo</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Obstetra</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Esportivo</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Geriatra</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Ginecologista</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Pediatra</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="pacientes">

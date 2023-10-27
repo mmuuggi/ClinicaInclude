@@ -1,32 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
     carregarNome();
-    carregarHistoricoMedico();
+    carregarConsultasPacientes();
 });
 
 function stringParaData(dataString) {
     const [dia, mes, ano] = dataString.split('/').map(Number);
     return new Date(ano, mes - 1, dia);
 }
+
 function removerHora(data) {
-    const novaData = new Date(data);
-    novaData.setHours(0, 0, 0, 0);
-    return novaData;
+const novaData = new Date(data);
+novaData.setHours(0, 0, 0, 0);
+return novaData;
 }
-function carregarHistoricoMedico() {
+
+function carregarConsultasPacientes() {
     const consultas = localStorage.getItem('minhasConsultas');
     const container = document.getElementById('Datas');
     let i = 0;
-    if (consultas){
+    if (consultas) {
         const dataAtual = new Date();
         const dataAtualSemHora = removerHora(dataAtual);
-        const consulta = JSON.parse(consultas);
+        let consulta = JSON.parse(consultas);
         consulta.forEach(consulta => {
             let dataConsulta = stringParaData(consulta.data_consulta);
             let dataConsultaSemHora = removerHora(dataConsulta);
-            if (dataConsultaSemHora < dataAtualSemHora) {
+            if (dataConsultaSemHora >= dataAtualSemHora) {
                 const div = document.createElement('div');
                 let consultaId = consulta.id;
-                div.id = 'datapac';
+                div.id = 'datap';
                 div.classList.add(consultaId);
                 div.innerHTML = `
                 <a href='javascript:abrir(${consultaId})'>
@@ -41,12 +43,10 @@ function carregarHistoricoMedico() {
         if (i === 0) {
             const div = document.createElement('div');
             div.innerHTML = `
-                <h2>Sem consultas antigas</h2>
+                <h2>Sem consultas!</h2>
             `;
             container.appendChild(div);
         }
-    }else {
-        console.log("2");
     }
 }
 
@@ -56,7 +56,9 @@ function carregarNome(){
     UserName.textContent = name;
 }
 
+
 function abrir(idConsulta){
+    console.log(idConsulta)
     const consultas = localStorage.getItem('minhasConsultas');
     const container = document.getElementById('container-pop');
     if(consultas){
@@ -117,6 +119,7 @@ function abrir(idConsulta){
     }
     
 }
+
 function fechar(){
     document.getElementById('popup').style.display= 'none';
 }

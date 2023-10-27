@@ -13,6 +13,7 @@ function carregarEspecialidade(){
         if(especialidades == ''){
             especialidadeMedico.textContent = "Especialidade: " + 'Nenhuma cadastrada';
         }else{
+            document.getElementById('especialidadeButton').style.display = 'none';
             especialidadeMedico.textContent = "Especialidade: " + especialidades;
         }
     }
@@ -104,31 +105,44 @@ function carregarConsultasPacientes() {
 function carregarConsultasMedicos() {
     const consultas = localStorage.getItem('minhasConsultas');
     const container = document.getElementById('container-pacientes');
-    console.log(consultas);
+    let i = 0;
     if (consultas.length > 2) {
         let consulta = JSON.parse(consultas);
         let dataAtual = new Date();
         let dataAtualSemHora = removerHora(dataAtual);
-        let i = 0;
         consulta.forEach(consulta => {
             let dataConsulta = stringParaData(consulta.data_consulta);
             let dataConsultaSemHora = removerHora(dataConsulta);
             if (dataConsultaSemHora.getTime() === dataAtualSemHora.getTime()) {
                 const div = document.createElement('div');
+                div.className = 'pacientes-diario';
                 div.innerHTML = `
-                <p id="info-paciente">${consulta.nome_paciente} <br> ${consulta.hora_consulta}</p>
+                <p id="checkup">${consulta.nome_paciente} <br> </p>
+                <p id="info-paciente">${consulta.hora_consulta}</p>
                 `;
                 container.appendChild(div);
                 i++;
             }
         });
-        if (i === 0) {
-            const div = document.createElement('div');
-            div.innerHTML = `
-            <p id="info-paciente">Sem consultas!!</p>
-            `;
-            container.appendChild(div);
-        }
+        
     }
+    if (i == 0){
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <p id="info-paciente">Sem consultas!!</p>
+        `;
+        container.appendChild(div);
+    }
+}
+
+function cadastrarEspecialidade(){
+    document.getElementById("janelaCadastro").style.display = 'block';
+    document.getElementById('especialidadeButton').style.display = 'none';
+}
+
+function cadastroEspecialidade(element){
+    let esp = element.querySelector("p").textContent;
+    
+
 }
 

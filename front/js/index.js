@@ -6,7 +6,7 @@ function login(){
         email: email,
         password: password,
         role: "",
-        especialidade: ""
+        especialidade: "",
     };
 
     fetch('https://includeapi-production.up.railway.app/login', {
@@ -63,7 +63,8 @@ function cadastro(){
         password: password,
         name: name,
         cpf: cpf,
-        idServidor: idServidor
+        idServidor: idServidor,
+        message: ""
     };
 
     fetch('https://includeapi-production.up.railway.app/cadastro', {
@@ -80,9 +81,13 @@ function cadastro(){
             localStorage.setItem('especialidade', data.especialidade);
             window.location.href = 'homePageLogada.html';
         }else{
-            throw new Error("Erro na solicitação: " + response.body)
+            return response.json()
         }
     })
+    .then(data =>{
+        console.log(data.message)
+    }
+        )
     .catch(error =>{
         alert(error.message);
     });
