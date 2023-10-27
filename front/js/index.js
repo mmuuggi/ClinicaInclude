@@ -5,8 +5,8 @@ function login(){
     const data = {
         email: email,
         password: password,
-        role: "1",
-        especialidade: "2"
+        role: "",
+        especialidade: ""
     };
 
     fetch('https://includeapi-production.up.railway.app/login', {
@@ -24,29 +24,22 @@ function login(){
         }
     })
     .then(data =>{
-        const consultas = data.consultas;
-        if(consultas != null){
-            alert(1);
-        }
-        const datasEspecialidades = consultas.map(consulta => ({
-            data: consulta.data_consulta,
-            especialidade: consulta.especialidade
-        }));
-        localStorage.setItem('consultas', JSON.stringify(datasEspecialidades));
+        localStorage.setItem('email', data.email);
         localStorage.setItem('name', data.name);
         localStorage.setItem('role', data.role);
-        localStorage.setItem('especialidade', data.especialidade);
-        localStorage.setItem('DoisUm', JSON.stringify(consultas));
-
+        if(localStorage.getItem('role') == 'Médico'){
+            if(data.especialidade !== null){
+                localStorage.setItem('especialidade', data.especialidade);
+            }else{
+                localStorage.setItem('especialidade', '');
+            }
+        }
         window.location.href = 'homePageLogada.html';
-
-        
     })
     .catch(error =>{
         alert(error.message);
     });
 }
-
 
 function perfilPage(){
     if(localStorage.getItem('role') == 'Paciente'){
@@ -73,7 +66,7 @@ function cadastro(){
         idServidor: idServidor
     };
 
-    fetch('https://includeapi-production.up.railway.app/login', {
+    fetch('https://includeapi-production.up.railway.app/cadastro', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -94,10 +87,7 @@ function cadastro(){
         alert(error.message);
     });
 }
-
 function deslogar(){
-    localStorage.setItem('name', '');
-    localStorage.setItem('role', '');
-    localStorage.setItem('especialidade', '');
+    localStorage.clear();
     window.location.href = 'homePage.html';
 }

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ConsultasRepository extends JpaRepository<Consultas, Long> {
     List<Consultas> findByEmail(String email);
+    List<Consultas> findByMedicoEmail(String MedicoEmail);
 }

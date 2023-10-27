@@ -1,32 +1,134 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const UserName = document.getElementById('name');
-    const name = localStorage.getItem('name');
+    consultas();
+    carregarNome();
+    carregarEspecialidade();
+});
+
+
+function carregarEspecialidade(){
     const role = localStorage.getItem('role');
     const especialidades = localStorage.getItem('especialidade');
-    let consulta = JSON.parse(localStorage.getItem('consultas'));
-    let data1;
-    let espe;
-    if(consulta != null){
-        for(let i =1; i<4; i++){
-            let algo = 'datapac' + i;
-            let ida = 'espe' + i;
-            data1 = document.getElementById(algo);
-            espe = document.getElementById(ida);
-            if(consulta[i-1] != null){
-                data1.textContent = (consulta[i-1].data);
-                console.log(espe);
-                espe.textContent = (consulta[i-1].especialidade)
-            }
-        }
-    }
-    if (UserName && name) {   
-        UserName.textContent = name;
-    }
     if(role == 'Médico'){
         let especialidadeMedico = document.getElementById('especialidade');
-        if(especialidades != null){
-            especialidadeMedico.textContent = "especialidade: " + especialidades;
+        if(especialidades == ''){
+            especialidadeMedico.textContent = "Especialidade: " + 'Nenhuma cadastrada';
+        }else{
+            especialidadeMedico.textContent = "Especialidade: " + especialidades;
         }
     }
-    
-});
+}
+
+function carregarNome(){
+    const UserName = document.getElementById('name');
+    const name = localStorage.getItem('name');
+    UserName.textContent = 'Nome: ' + name;
+}
+
+function consultas(){
+    const data = {
+        email: localStorage.getItem('email'),
+        role: localStorage.getItem('role'),
+        consultas: ""
+    };
+
+    fetch('https://includeapi-production.up.railway.app/perfil', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+    .then(response => {
+        if(response.status == 200){
+            return response.json();
+        }
+    })
+    .then(data => {
+        const consultas = data.consultas;
+        localStorage.setItem('minhasConsultas', JSON.stringify(consultas));
+        if(localStorage.getItem('role') == 'Médico'){
+            carregarConsultasMedicos();
+        }else{
+            carregarConsultasPacientes();
+        }
+    })
+}
+
+function stringParaData(dataString) {
+        const [dia, mes, ano] = dataString.split('/').map(Number);
+        return new Date(ano, mes - 1, dia);
+}
+
+function removerHora(data) {
+    const novaData = new Date(data);
+    novaData.setHours(0, 0, 0, 0);
+    return novaData;
+}
+
+function atualizarConsultasPacientes() {
+    setInterval(carregarConsultasPacientes, 5000); // Atualiza a cada 5 segundos
+}
+
+function carregarConsultasPacientes() {
+    const consultas = localStorage.getItem('minhasConsultas');
+    const container = document.getElementById('Datas');
+    let i = 0;
+    if (consultas) {
+        const dataAtual = new Date();
+        const dataAtualSemHora = removerHora(dataAtual);
+        let consulta = JSON.parse(consultas);
+        consulta.forEach(consulta => {
+            let dataConsulta = stringParaData(consulta.data_consulta);
+            let dataConsultaSemHora = removerHora(dataConsulta);
+            if (dataConsultaSemHora >= dataAtualSemHora) {
+                const div = document.createElement('div');
+                div.id = 'datap';
+                div.innerHTML = `
+                    <h2>${consulta.data_consulta}</h2>
+                    <p>${consulta.especialidade}</p>
+                `;
+                container.appendChild(div);
+                i++;
+            }
+        });
+        if (i === 0) {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <h2>Sem consultas!</h2>
+            `;
+            container.appendChild(div);
+        }
+    }
+}
+
+function carregarConsultasMedicos() {
+    const consultas = localStorage.getItem('minhasConsultas');
+    const container = document.getElementById('container-pacientes');
+    console.log(consultas);
+    if (consultas.length > 2) {
+        let consulta = JSON.parse(consultas);
+        let dataAtual = new Date();
+        let dataAtualSemHora = removerHora(dataAtual);
+        let i = 0;
+        consulta.forEach(consulta => {
+            let dataConsulta = stringParaData(consulta.data_consulta);
+            let dataConsultaSemHora = removerHora(dataConsulta);
+            if (dataConsultaSemHora.getTime() === dataAtualSemHora.getTime()) {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                <p id="info-paciente">${consulta.nome_paciente} <br> ${consulta.hora_consulta}</p>
+                `;
+                container.appendChild(div);
+                i++;
+            }
+        });
+        if (i === 0) {
+            const div = document.createElement('div');
+            div.innerHTML = `
+            <p id="info-paciente">Sem consultas!!</p>
+            `;
+            container.appendChild(div);
+        }
+    }
+}
+

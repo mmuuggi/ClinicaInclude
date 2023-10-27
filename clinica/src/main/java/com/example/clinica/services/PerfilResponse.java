@@ -7,15 +7,13 @@ import java.util.List;
 
 @Getter
 public class PerfilResponse {
-    private String email;
-    private String name;
-    private String role;
     private List<Consultas> consultas;
 
-    public PerfilResponse(String email, String name, String role, List<Consultas> consultas){
-        this.email = email;
-        this.name = name;
-        this.role = role;
+    public PerfilResponse(){
+
+    }
+
+    public PerfilResponse(List<Consultas> consultas){
         this.consultas = consultas;
     }
 }
