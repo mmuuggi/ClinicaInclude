@@ -29,7 +29,7 @@ public class cadastroController {
                 if(Objects.equals(data.role(), "1")){
                     users = new UsersRequestDTO(data.name(), data.email(), data.password(), data.cpf(), "Médico", data.especialidade());
                 }else if(Objects.equals(data.role(), "2")){
-                    users = new UsersRequestDTO(data.name(), data.email(), data.password(), data.cpf(), "Recepção", null);
+                    users = new UsersRequestDTO(data.name(), data.email(), data.password(), data.cpf(), "Recepcionista", null);
                 }else{
                     users = new UsersRequestDTO(data.name(), data.email(), data.password(), data.cpf(), "Paciente", null);
                 }
@@ -39,10 +39,24 @@ public class cadastroController {
                 return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
 
             }catch (DataIntegrityViolationException e){
-                ApiResponse apiResponse = new ApiResponse("E-mail já cadastrado");
-                return new ResponseEntity<>(apiResponse, HttpStatus.CONFLICT);
+                String errorMessage = e.getMessage();
+                if(errorMessage.contains("users_email_key") && errorMessage.contains("users_cpf_key")){
+                    ApiResponse apiResponse = new ApiResponse("E-mail e CPF já cadastrados");
+                    return new ResponseEntity<>(apiResponse, HttpStatus.CONFLICT);
+                }
+                else if(errorMessage.contains("users_email_key")){
+                    ApiResponse apiResponse = new ApiResponse("E-mail já cadastrado");
+                    return new ResponseEntity<>(apiResponse, HttpStatus.CONFLICT);
+                }else{
+                    ApiResponse apiResponse = new ApiResponse("CPF já cadastrado");
+                    return new ResponseEntity<>(apiResponse, HttpStatus.CONFLICT);
+                }
+
             }
-        }else if(isValidEmail(data.email()) == false){
+        }else if(!isValidEmail(data.email()) && !validarCPF(data.cpf())){
+            ApiResponse apiResponse = new ApiResponse("E-mail e CPF em formato inválido");
+            return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
+        }else if(!isValidEmail(data.email())){
             ApiResponse apiResponse = new ApiResponse("E-mail em formato inválido");
             return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
         }else{
