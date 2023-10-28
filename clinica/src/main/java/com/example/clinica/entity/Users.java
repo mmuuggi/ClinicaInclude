@@ -31,4 +31,8 @@ public class Users{
         this.role = data.role();
         this.especialidade = data.especialidade();
     }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
 }

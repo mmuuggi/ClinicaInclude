@@ -1,8 +1,6 @@
 package com.example.clinica.controller;
 
-import com.example.clinica.entity.Consultas;
 import com.example.clinica.entity.Users;
-import com.example.clinica.repository.ConsultasRepository;
 import com.example.clinica.repository.UsersRepository;
 import com.example.clinica.repository.UsersRequestDTO;
 import com.example.clinica.services.ApiResponse;
