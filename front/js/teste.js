@@ -12,11 +12,12 @@ function carregarEspecialidade(){
     const especialidades = localStorage.getItem('especialidade');
     if(role == 'Médico'){
         let especialidadeMedico = document.getElementById('especialidade');
-        if(especialidades == ''){
-            especialidadeMedico.textContent = "Especialidade: " + 'Nenhuma';
-        }else{
+        console.log(especialidades)
+        if(especialidades != ''){
             document.getElementById('especialidadeButton').style.display = 'none';
             especialidadeMedico.textContent = "Especialidade: " + especialidades;
+        }else{
+            especialidadeMedico.textContent = "Especialidade: " + 'Nenhuma';
         }
     }
 }
@@ -34,7 +35,7 @@ function consultas(){
         consultas: ""
     };
 
-    fetch('http://localhost:3000/perfil', {
+    fetch('https://includeapi-production.up.railway.app/perfil', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -166,7 +167,7 @@ function pesquisarMedico(tipo){
         email: email,
         role: tipo
     };
-    fetch('http://localhost:3000/pesquisar', {
+    fetch('https://includeapi-production.up.railway.app/pesquisar', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -232,8 +233,10 @@ function confirmarButton(){
         const data = {
             email: localStorage.getItem('email'),
             especialidade: document.getElementById('nomeEspecialidade').textContent
+            
         }
-        fetch('http://localhost:3000/especialidade', {
+        console.log(document.getElementById('nomeEspecialidade').textContent)
+        fetch('https://includeapi-production.up.railway.app/especialidade', {
         method: 'PUT',
         body: JSON.stringify(data),
         headers: {

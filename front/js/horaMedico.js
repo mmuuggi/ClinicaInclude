@@ -26,7 +26,7 @@ function addHorarioMedico() {
         especialidade: localStorage.getItem('especialidadeMedico')
     };
 
-    fetch('http://localhost:3000/cadastrarHorario', {
+    fetch('https://includeapi-production.up.railway.app/cadastrarHorario', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

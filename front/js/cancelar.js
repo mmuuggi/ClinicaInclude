@@ -156,7 +156,7 @@ function cancelarConsulta(){
         hora_consulta: localStorage.getItem('horaMedico1')
     };
 
-    fetch('http://localhost:3000/desmarcar', {
+    fetch('https://includeapi-production.up.railway.app/desmarcar', {
         method: 'DELETE',
         body: JSON.stringify(data),
         headers: {

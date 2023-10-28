@@ -9,7 +9,7 @@ function login() {
         especialidade: "",
     };
 
-    fetch('http://localhost:3000/login', {
+    fetch('https://includeapi-production.up.railway.app/login', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -62,7 +62,7 @@ function cadastro(){
     if(idServidor == 'medicomtosupinpa'){
         idServidor = 'Médico';
     }else if(idServidor == 'recepcionistamtosupinpa'){
-        idServidor = 'recepcionistamtosupinpa';
+        idServidor = 'Recepcionista';
     }else{
         idServidor = 'Paciente';
     }
@@ -72,10 +72,11 @@ function cadastro(){
         name: name,
         cpf: cpf,
         role: idServidor,
-        message: ""
+        message: "",
+        especialidade: ''
     };
 
-    fetch('http://localhost:3000/cadastro', {
+    fetch('https://includeapi-production.up.railway.app/cadastro', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
