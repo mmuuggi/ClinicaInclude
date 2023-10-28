@@ -68,10 +68,20 @@ function abrir(idConsulta){
             const div = document.createElement('div');
             div.id = 'popup';
             div.classList.add('examepopup');
-            div.innerHTML = `<h1 id="especialidadePopUPTitle"></h1>
-            <h2 id="dataPopUPTitle"></h2>
+            div.innerHTML = `           <div id='headerHistoricoPop'>
             <div>
-            <p>
+                <a href="javascript:fechar()">
+                    <img src="image/BackButton.svg" alt="">
+                </a>
+            </div>
+            <div>
+                <h1 id="especialidadePopUPTitle"></h1>
+                <h2 id="dataPopUPTitle"></h2>
+            </div>
+        </div>
+        <div id="teste12" >
+        <div>
+        <p>
             <span>Nome do Paciente:</span>
             <span id="nomePacientePopUP"></span>
         </p>
@@ -95,10 +105,14 @@ function abrir(idConsulta){
                 <span>Descrição:</span>
                 <span id="descricaoPacientePopUP"></span>
             </p>
-            <a href="javascript:fechar()">
-                <img src="image/BackButton.svg" alt="">
-            </a>
-        </div>`
+    </div>
+    <div id='testeimg' >
+    <div>
+    <p>Exame:</p>
+        <img src="image/image 2.svg" alt="">
+    </div>
+    </div>
+    </div>`
         container.appendChild(div);
             document.getElementById('dataPopUPTitle').textContent = consultaEncontrada.data_consulta;
             document.getElementById('especialidadePopUPTitle').textContent = consultaEncontrada.especialidade;

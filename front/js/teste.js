@@ -88,6 +88,7 @@ function carregarConsultasPacientes() {
                 div.id = 'teste';
                 div.innerHTML = `
                     <h2>${consulta.data_consulta}</h2>
+                    <p>${consulta.hora_consulta}</p>
                     <p>${consulta.especialidade}</p>
                 `;
                 container.appendChild(div);
@@ -263,8 +264,18 @@ function abrir(idConsulta){
             div.id = 'popup1';
             div.classList.add('examepopup');
             div.innerHTML = `
-            <h1 id="especialidadePopUPTitle"></h1>
-            <h2 id="dataPopUPTitle"></h2>
+            <div id='headerHistoricoPop'>
+                <div>
+                    <a href="javascript:fechar()">
+                        <img src="image/BackButton.svg" alt="">
+                    </a>
+                </div>
+                <div>
+                    <h1 id="especialidadePopUPTitle"></h1>
+                    <h2 id="dataPopUPTitle"></h2>
+                </div>
+            </div>
+            <div id="teste12" >
             <div>
             <p>
                 <span>Nome do Paciente:</span>
@@ -294,10 +305,17 @@ function abrir(idConsulta){
                     <span>Descrição:</span>
                     <span id="descricaoMedicoPopUP"></span>
                 </p>
-                <a href='Historicopaciente.html'><button>Ver histórico completo</button></a>
-                <a href="javascript:fechar()">
-                    <img src="image/BackButton.svg" alt="">
-                </a>
+        </div>
+        <div id='testeimg' >
+        <div>
+        <p>Exame:</p>
+            <img src="image/image 2.svg" alt="">
+        </div>
+        </div>
+        </div>
+        <div id='botoesHistorico'>
+            <a id='buttonHistorico' href='Historicopaciente.html'>Ver histórico completo</a>
+            
         </div>`
         container.appendChild(div);
             document.getElementById('dataPopUPTitle').textContent = consultaEncontrada.data_consulta;
