@@ -113,7 +113,9 @@ body{
     margin-top: 30px;
     
 }
-.cadastro-janela{
+#janelaCadastro{
+    position: absolute;
+    margin-left: 5vh;
     display: none;
 }
 .pacientes-diario{
@@ -241,8 +243,8 @@ body{
     display: none;
 } 
 .PopupConfirmar{
-    margin-left: 325px;
-    margin-top: 320px;
+    margin-left: -85px;
+    margin-top: 85px;
     position: absolute;
     color: #1D3461;
     width: 517px;
@@ -311,6 +313,17 @@ body{
 #container-pacientes a{
     text-decoration: none;
 }
+#container-pop h2, h1{
+    font-size: 40px;
+    color: #1D3461;
+    font-family: 'Trebuchet MS';
+}
+
+#container-pop span{
+    font-size: 20px;
+    color: #1D3461;
+    font-family: 'Trebuchet MS';
+}
 .examepopup {
     display: none;
     flex-direction: column;
@@ -321,7 +334,7 @@ body{
     position: absolute;
     left: 50%; /* Centralizar horizontalmente */
     top: 50%; /* Centralizar verticalmente */
-    transform: translate(-50%, -50%); /* Centralizar precisamente */
+    transform: translate(-50%, -50%);
     height: 867px;
     box-shadow: 0px 0px 20px 2px black, 0em 0px 20em 20px black;
 }
@@ -333,4 +346,60 @@ body{
 
 .examepopup p {
     padding: 20px;
+}
+#especialidadePopUPTitle{
+    padding-top: 10vh;
+}
+#teste12{
+    display: flex;
+    flex-direction: row;
+    padding-top: 7vh;
+    gap: 10vw;
+}
+#testeimg{
+    display: flex;
+    align-items: center;
+    font-family:Trebuchet MS;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 58px;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #1D3461;
+    border-radius: 3vh;
+    height: 40vh;
+    width: 20vw;
+}
+#testeimg p{
+    display: flex;
+    justify-content: center;
+    padding-top: 3vh;
+}
+#testeimg img{
+    width: 15vw;
+}
+#buttonHistorico{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 300px;
+    border-radius: 20px;
+    background-color: #1D3461;
+    font-family: 'Trebuchet MS';
+    font-size: 25px;
+    color: white;
+}
+#headerHistoricoPop{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    width: 100%;
+    gap: 40vh;
+}
+#especialidadeButton{
+    margin-top: 4vh;
+    margin-left: 10vh;
 }
