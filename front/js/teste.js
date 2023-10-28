@@ -154,13 +154,14 @@ function cadastroEspecialidade(element){
 
 }
 
-function pesquisarMedico(){
+function pesquisarMedico(tipo){
     let email = document.getElementById('email').value;
-    let nomeMedico = document.getElementById('nameMedico');
+    let nomePesquisa = document.getElementById('nomePesquisa');
     const data = {
-        email: email
+        email: email,
+        role: tipo
     };
-    fetch('https://includeapi-production.up.railway.app/pesquisarmedico', {
+    fetch('http://localhost:3000/pesquisar', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -172,39 +173,48 @@ function pesquisarMedico(){
             return response.json().then(data => {
                 let name = data.name;
                 let role = data.role;
-                let especialidade = data.especialidade;
-                let message = data.message;
-                console.log(especialidade);
                 let email = data.email;
-                if(especialidade == null){
-                    console.log('1' + especialidade);
-                    nomeMedico.textContent = name + ' - Especialidade não cadastrada.';
-                    nomeMedico.addEventListener('click', function(event){
-                        event.preventDefault();
-                        document.getElementById('MsgErro').textContent = 'Não é possível acessar médico sem especialidade'
-                    })
-                    
+                if(role == 'Médico'){
+                    let especialidade = data.especialidade;
+                    if(especialidade == null){
+                        nomePesquisa.textContent = name + ' - Especialidade não cadastrada.';
+                        nomePesquisa.addEventListener('click', function(event){
+                            event.preventDefault();
+                            document.getElementById('MsgErro').textContent = 'Não é possível acessar médico sem especialidade'
+                        })
+                        
+                    }else{
+                        localStorage.setItem('nomeMedico', name);
+                        localStorage.setItem('emailMedico', email);
+                        localStorage.setItem('roleMedico', role);
+                        localStorage.setItem('especialidadeMedico', especialidade);
+                        nomePesquisa.textContent = name + ' - ' + especialidade;
+                        document.getElementById('MsgErro').textContent = '';
+                        nomePesquisa.addEventListener('click', function(){
+                            window.location.href = 'perfilRecepicaoEdicaomed02.html';
+                        })
+                    }
                 }else{
-                    localStorage.setItem('nomeMedico', name);
-                    localStorage.setItem('emailMedico', email);
-                    localStorage.setItem('roleMedico', role);
-                    localStorage.setItem('especialidadeMedico', especialidade);
-                    nomeMedico.textContent = name + ' - ' + especialidade;
-                    document.getElementById('MsgErro').textContent = '';
-                    nomeMedico.addEventListener('click', function(){
-                        window.location.href = 'perfilRecepicaoEdicaomed02.html';
-                    })
+                    localStorage.setItem('nomePesquisa', name);
+                    localStorage.setItem('emailPesquisa', email);
+                    localStorage.setItem('rolePesquisa', role);
+                    nomePesquisa.textContent = name;
                 }
+                
                 
             });
         } else if (response.status == 400) {
-            nomeMedico.textContent = 'Email em formato inválido';
-            nomeMedico.addEventListener('click', function(event){
+            nomePesquisa.textContent = 'Email em formato inválido';
+            nomePesquisa.addEventListener('click', function(event){
                 event.preventDefault();
             })
-        } else {
-            nomeMedico.textContent = 'Médico não encontrado.';
-            nomeMedico.addEventListener('click', function(event){
+        } else{
+            if(tipo == 'Médico'){
+                nomePesquisa.textContent = 'Médico não encontrado.';
+            }else{
+                nomePesquisa.textContent = 'Paciente não encontrado.';
+            }
+            nomePesquisa.addEventListener('click', function(event){
                 event.preventDefault();
             })
         }
