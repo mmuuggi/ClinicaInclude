@@ -113,7 +113,9 @@ body{
     margin-top: 30px;
     
 }
-.cadastro-janela{
+#janelaCadastro{
+    position: absolute;
+    margin-left: 5vh;
     display: none;
 }
 .pacientes-diario{
@@ -329,4 +331,8 @@ body{
     align-content: flex-start;
     width: 100%;
     gap: 40vh;
+}
+#especialidadeButton{
+    margin-top: 4vh;
+    margin-left: 10vh;
 }

@@ -13,7 +13,7 @@ function carregarEspecialidade(){
     if(role == 'Médico'){
         let especialidadeMedico = document.getElementById('especialidade');
         if(especialidades == ''){
-            especialidadeMedico.textContent = "Especialidade: " + 'Nenhuma cadastrada';
+            especialidadeMedico.textContent = "Especialidade: " + 'Nenhuma';
         }else{
             document.getElementById('especialidadeButton').style.display = 'none';
             especialidadeMedico.textContent = "Especialidade: " + especialidades;
@@ -143,7 +143,11 @@ function carregarConsultasMedicos() {
 
 function cadastrarEspecialidade(){
     document.getElementById("janelaCadastro").style.display = 'block';
+    document.getElementById("name").style.position = 'relative';
+    document.getElementById('especialidade').style.display = 'none';
     document.getElementById('especialidadeButton').style.display = 'none';
+    document.getElementById('pacientes-exibir').style.marginTop = '15vh';
+    
 }
 
 function cadastroEspecialidade(element){

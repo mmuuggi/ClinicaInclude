@@ -20,21 +20,24 @@
             <section class="medico-info">
                 <div class="medico-container">
                     <img src="img/janela-icons/Fotinha.svg" alt="">
-                    <p id="name" class="nome-especialidade">Nome:</p>
-                    <p id="especialidade">Esp</p>
-                    <button id="especialidadeButton" class="botão-cadastro" onclick="cadastrarEspecialidade()">Cadastrar especialidade</button>
-                    <div id="janelaCadastro" class="cadastro-janela">
-                        <h1>Escolha sua especialidade</h1>
-                        <h2>(essa escolha não poderá ser alterada no futuro)</h2>
-                        <div class="especialidade-container">
-                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Psicólogo</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
-                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Obstetra</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
-                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Esportivo</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
-                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Geriatra</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
-                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Ginecologista</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
-                            <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Pediatra</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                    <div id="divDados">
+                        <p id="name" class="nome-especialidade"></p>
+                        <div id="janelaCadastro" class="cadastro-janela">
+                            <h1>Escolha sua especialidade</h1>
+                            <h2>(essa escolha não poderá ser alterada no futuro)</h2>
+                            <div class="especialidade-container">
+                                <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Psicólogo</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                                <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Obstetra</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                                <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Esportivo</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                                <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Geriatra</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                                <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Ginecologista</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                                <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Pediatra</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
+                            </div>
                         </div>
+                        <p id="especialidade"></p>
                     </div>
+                    <button id="especialidadeButton" class="botão-cadastro" onclick="cadastrarEspecialidade()">Cadastrar especialidade</button>
+                    
                     <div id="popup">
                         <h2>Confirmar Escolha</h2>
                         <h3 id="nomeEspecialidade">Especialidade</h3>
@@ -46,7 +49,7 @@
                     </div>
                 </div>
             </section>
-            <section class="pacientes">
+            <section id="pacientes-exibir"class="pacientes">
                 <p id="pacientes-titulo">Pacientes de hoje:</p>
                 <div id= "container-pacientes" class="pacientes-container">
                 </div>
