@@ -240,3 +240,30 @@ body{
 #popup{
     display: none;
 } 
+
+#container-pacientes a{
+    text-decoration: none;
+}
+.examepopup {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 1058px;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%; /* Centralizar horizontalmente */
+    top: 50%; /* Centralizar verticalmente */
+    transform: translate(-50%, -50%); /* Centralizar precisamente */
+    height: 867px;
+    box-shadow: 0px 0px 20px 2px black, 0em 0px 20em 20px black;
+}
+
+.examepopup div {
+    display: flex;
+    flex-direction: column;
+}
+
+.examepopup p {
+    padding: 20px;
+}

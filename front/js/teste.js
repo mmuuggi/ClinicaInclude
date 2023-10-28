@@ -87,7 +87,7 @@ function carregarConsultasPacientes() {
                 const div = document.createElement('div');
                 div.id = 'teste';
                 div.innerHTML = `
-                    <h2 >${consulta.data_consulta}</h2>
+                    <h2>${consulta.data_consulta}</h2>
                     <p>${consulta.especialidade}</p>
                 `;
                 container.appendChild(div);
@@ -117,10 +117,13 @@ function carregarConsultasMedicos() {
             let dataConsultaSemHora = removerHora(dataConsulta);
             if (dataConsultaSemHora.getTime() === dataAtualSemHora.getTime()) {
                 const div = document.createElement('div');
+                let consultaId = consulta.id;
                 div.className = 'pacientes-diario';
                 div.innerHTML = `
+                <a href='javascript:abrir(${consultaId})'>
                 <p id="checkup">${consulta.nome_paciente} <br> </p>
                 <p id="info-paciente">${consulta.hora_consulta}</p>
+                </a>
                 `;
                 container.appendChild(div);
                 i++;
@@ -170,9 +173,10 @@ function pesquisarMedico(){
                 let role = data.role;
                 let especialidade = data.especialidade;
                 let message = data.message;
-                console.log(data.especialidade);
+                console.log(especialidade);
                 let email = data.email;
                 if(especialidade == null){
+                    console.log('1' + especialidade);
                     nomeMedico.textContent = name + ' - Especialidade não cadastrada.';
                     nomeMedico.addEventListener('click', function(event){
                         event.preventDefault();
@@ -185,6 +189,10 @@ function pesquisarMedico(){
                     localStorage.setItem('roleMedico', role);
                     localStorage.setItem('especialidadeMedico', especialidade);
                     nomeMedico.textContent = name + ' - ' + especialidade;
+                    document.getElementById('MsgErro').textContent = '';
+                    nomeMedico.addEventListener('click', function(){
+                        window.location.href = 'perfilRecepicaoEdicaomed02.html';
+                    })
                 }
                 
             });
@@ -205,7 +213,32 @@ function pesquisarMedico(){
 function confirmarButton(){
     let input = document.getElementById('especialidadeInput').value;
     if(input == 'Confirmar'){
-        console.log("conexão com bd");
+        const data = {
+            email: localStorage.getItem('email'),
+            especialidade: document.getElementById('nomeEspecialidade').textContent
+        }
+        fetch('http://localhost:3000/especialidade', {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json'
+        }
+        })
+        .then(response => {
+            if(response.status == 200){
+                return response.json();
+            }
+        })
+        .then(data => {
+            localStorage.setItem('especialidade', data.especialidade);
+        })
+        fechar();
+        let botao = document.getElementById('especialidadeButton');
+        botao.removeEventListener("click", cadastrarEspecialidade);
+        setTimeout(function() {
+            location.reload();
+        }, 4000);
+        
     }else{
         console.log(2);
     }
@@ -213,6 +246,85 @@ function confirmarButton(){
 }
 
 function fechar(){
-    document.getElementById('especialidadeButton').style.display = 'block';
+    document.getElementById('especialidadeButton').style.display = 'none';
     document.getElementById('popup').style.display = 'none';
+    document.getElementById('janelaCadastro').style.display = 'none';
+}
+
+function abrir(idConsulta){
+    console.log(1)
+    const consultas = localStorage.getItem('minhasConsultas');
+    const container = document.getElementById('container-pop');
+    if(consultas){
+        const consulta = JSON.parse(consultas);
+        const consultaEncontrada = consulta.find(consulta => consulta.id === idConsulta);
+        if(consultaEncontrada){
+            const div = document.createElement('div');
+            div.id = 'popup1';
+            div.classList.add('examepopup');
+            div.innerHTML = `
+            <h1 id="especialidadePopUPTitle"></h1>
+            <h2 id="dataPopUPTitle"></h2>
+            <div>
+            <p>
+                <span>Nome do Paciente:</span>
+                <span id="nomePacientePopUP"></span>
+            </p>
+            <p>
+                <span>Nome do Médico:</span>
+                <span id="nomeMedicoPopUP"></span>
+            </p>
+            <p>
+                <span>Especialidade do Médico:</span>
+                <span id="especialidadePopUP"></span>
+            </p>
+            <p>
+                <span>Data da realização do exame:</span>
+                <span id="dataPopUP"></span>
+            </p>
+                <p>
+                    <span>Horário:</span>
+                    <span id="horarioPopUP"></span>
+                </p>
+                <p>
+                    <span>Descrição:</span>
+                    <span id="descricaoPacientePopUP"></span>
+                </p>
+                <p>
+                    <span>Descrição:</span>
+                    <span id="descricaoMedicoPopUP"></span>
+                </p>
+                <a href='Historicopaciente.html'><button>Ver histórico completo</button></a>
+                <a href="javascript:fechar()">
+                    <img src="image/BackButton.svg" alt="">
+                </a>
+        </div>`
+        container.appendChild(div);
+            document.getElementById('dataPopUPTitle').textContent = consultaEncontrada.data_consulta;
+            document.getElementById('especialidadePopUPTitle').textContent = consultaEncontrada.especialidade;
+            document.getElementById('nomePacientePopUP').textContent = consultaEncontrada.nome_paciente;
+            document.getElementById('nomeMedicoPopUP').textContent = 'Dr. ' + consultaEncontrada.nome_medico;
+            document.getElementById('especialidadePopUP').textContent = consultaEncontrada.especialidade;
+            document.getElementById('dataPopUP').textContent = consultaEncontrada.data_consulta;
+            document.getElementById('horarioPopUP').textContent = consultaEncontrada.hora_consulta;
+            if(consultaEncontrada.descricao_paciente){
+                document.getElementById('descricaoPacientePopUP').textContent = '"' + consultaEncontrada.descricao_paciente + '"';
+            }else{
+                document.getElementById('descricaoPacientePopUP').textContent = "Paciente não inseriu descrição."
+            }
+            if(consultaEncontrada.descricao_medico){
+                document.getElementById('descricaoMedicoPopUP').textContent = '"' + consultaEncontrada.descricao_medico + '"';
+            }else{
+                document.getElementById('descricaoMedicoPopUP').textContent = "Médico não inseriu descrição."
+            }
+            document.getElementById('popup1').style.display= 'flex';
+            document.getElementById('popup1').style.alignItems= 'center';
+        }else{
+            console.log(2)
+        }
+    }
+}
+
+function fechar(){
+    document.getElementById('popup1').style.display= 'none';
 }
