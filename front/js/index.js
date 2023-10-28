@@ -23,7 +23,6 @@ function login() {
             return response.json().then(data => {
                 let message = document.getElementById('messageErro');
                 message.textContent = data.message;
-                throw new Error(data.message); // Lançar uma exceção para tratamento de erro
             });
         }
     })
@@ -99,6 +98,7 @@ function cadastro(){
     }
         )
 }
+
 function deslogar(){
     localStorage.clear();
     window.location.href = 'homePage.html';

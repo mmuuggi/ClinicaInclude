@@ -232,6 +232,7 @@ body{
     border: none;
     outline: none;
 }
+
 .DiaMesAno h1{
     text-align: center;
 }
@@ -324,4 +325,13 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#messageErro{
+    display: flex;
+    padding-top: 5vh;
+    justify-content: center;
+    color: red;
+}
+#popup{
+    display: none;
 }

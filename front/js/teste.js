@@ -1,5 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
-    consultas();
+document.addEventListener('DOMContentLoaded', function (){
+    if(localStorage.getItem('role') != 'Recepcionista'){
+        consultas();
+    }
     carregarNome();
     carregarEspecialidade();
 });
@@ -144,5 +146,58 @@ function cadastroEspecialidade(element){
     let esp = element.querySelector("p").textContent;
     
 
+}
+
+function pesquisarMedico(){
+    let email = document.getElementById('email').value;
+    let nomeMedico = document.getElementById('nameMedico');
+    const data = {
+        email: email
+    };
+    fetch('https://includeapi-production.up.railway.app/pesquisarmedico', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+    .then(response => {
+        if(response.status == 200){
+            return response.json().then(data => {
+                let name = data.name;
+                let role = data.role;
+                let especialidade = data.especialidade;
+                let message = data.message;
+                console.log(data.especialidade);
+                let email = data.email;
+                if(especialidade == null){
+                    nomeMedico.textContent = name + ' - Especialidade não cadastrada.';
+                    nomeMedico.addEventListener('click', function(event){
+                        event.preventDefault();
+                        document.getElementById('MsgErro').textContent = 'Não é possível acessar médico sem especialidade'
+                    })
+                    
+                }else{
+                    localStorage.setItem('nomeMedico', name);
+                    localStorage.setItem('emailMedico', email);
+                    localStorage.setItem('roleMedico', role);
+                    localStorage.setItem('especialidadeMedico', especialidade);
+                    nomeMedico.textContent = name + ' - ' + especialidade;
+                }
+                
+            });
+        } else if (response.status == 400) {
+            nomeMedico.textContent = 'Email em formato inválido';
+            nomeMedico.textContent = 'Médico não encontrado.';
+            nomeMedico.addEventListener('click', function(event){
+                event.preventDefault();
+            })
+        } else {
+            nomeMedico.textContent = 'Médico não encontrado.';
+            nomeMedico.addEventListener('click', function(event){
+                event.preventDefault();
+            })
+        }
+    });
 }
 
