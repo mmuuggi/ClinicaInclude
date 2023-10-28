@@ -34,7 +34,7 @@ function consultas(){
         consultas: ""
     };
 
-    fetch('https://includeapi-production.up.railway.app/perfil', {
+    fetch('http://localhost:3000/perfil', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -147,6 +147,7 @@ function cadastrarEspecialidade(){
     document.getElementById('especialidade').style.display = 'none';
     document.getElementById('especialidadeButton').style.display = 'none';
     document.getElementById('pacientes-exibir').style.marginTop = '15vh';
+    document.getElementById('pacientes-titulo').style.paddingTop = '5vh';
     
 }
 
@@ -247,12 +248,12 @@ function confirmarButton(){
         .then(data => {
             localStorage.setItem('especialidade', data.especialidade);
         })
-        fechar();
         let botao = document.getElementById('especialidadeButton');
         botao.removeEventListener("click", cadastrarEspecialidade);
+        fechar();
         setTimeout(function() {
             location.reload();
-        }, 4000);
+        }, 2000);
         
     }else{
         console.log(2);
@@ -264,6 +265,8 @@ function fechar(){
     document.getElementById('especialidadeButton').style.display = 'none';
     document.getElementById('popup').style.display = 'none';
     document.getElementById('janelaCadastro').style.display = 'none';
+    document.getElementById('especialidade').style.display = 'block';
+    
 }
 
 function abrir(idConsulta){
@@ -280,7 +283,7 @@ function abrir(idConsulta){
             div.innerHTML = `
             <div id='headerHistoricoPop'>
                 <div>
-                    <a href="javascript:fechar()">
+                    <a href="javascript:fecharPop()">
                         <img src="image/BackButton.svg" alt="">
                     </a>
                 </div>
@@ -357,6 +360,10 @@ function abrir(idConsulta){
     }
 }
 
-function fechar(){
-    document.getElementById('popup1').style.display= 'none';
+function fecharPop(){
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('especialidadeButton').style.display = 'block';
+    document.getElementById('especialidade').style.display = 'block';
+    document.getElementById('especialidade').textContent = 'Especialidade: Nenhuma';
+    window.location.reload();
 }

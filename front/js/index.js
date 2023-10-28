@@ -9,7 +9,7 @@ function login() {
         especialidade: "",
     };
 
-    fetch('https://includeapi-production.up.railway.app/login', {
+    fetch('http://localhost:3000/login', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -75,7 +75,7 @@ function cadastro(){
         message: ""
     };
 
-    fetch('https://includeapi-production.up.railway.app/cadastro', {
+    fetch('http://localhost:3000/cadastro', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

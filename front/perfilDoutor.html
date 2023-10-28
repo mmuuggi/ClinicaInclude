@@ -20,8 +20,12 @@
             <section class="medico-info">
                 <div class="medico-container">
                     <img src="img/janela-icons/Fotinha.svg" alt="">
-                    <div id="divDados">
-                        <p id="name" class="nome-especialidade"></p>
+                    <div id="nameAndEspecialidade">
+                    <p id="name" class="nome-especialidade"></p>
+                    <p id="especialidade"></p>
+                </div>
+                    <button id="especialidadeButton" class="botão-cadastro" onclick="cadastrarEspecialidade()">Cadastrar especialidade</button>
+                        
                         <div id="janelaCadastro" class="cadastro-janela">
                             <h1>Escolha sua especialidade</h1>
                             <h2>(essa escolha não poderá ser alterada no futuro)</h2>
@@ -34,20 +38,18 @@
                                 <div onclick="cadastroEspecialidade(this)" id="especialidadeCadastro" class="opcao-especialidade"><p>Pediatra</p><img src="img/janela-icons/icon-park-solid_baby-feet.svg" alt=""></div>
                             </div>
                         </div>
-                        <p id="especialidade"></p>
-                    </div>
-                    <button id="especialidadeButton" class="botão-cadastro" onclick="cadastrarEspecialidade()">Cadastrar especialidade</button>
-                    
-                    <div id="popup">
-                        <h2>Confirmar Escolha</h2>
-                        <h3 id="nomeEspecialidade">Especialidade</h3>
-                        <p>Para confirmar essa escolha digite "Confirmar" no campo abaixo:</p>
-                        <input id="especialidadeInput" type="text">
-                        <button onclick="confirmarButton()">Confirmar</button>
-                        <button id='buttonfechar' onclick="fechar()">Cancelar</button>
-
-                    </div>
-                </div>
+                        <div>
+                        <div id="popup" class="PopupConfirmar">
+                            <h2>Confirmar Escolha</h2>
+                            <h3 id="nomeEspecialidade">Especialidade</h3>
+                            <p>Para confirmar essa escolha digite "Confirmar" no campo abaixo:</p>
+                            <input id="especialidadeInput" type="text">
+                            <div id="Afastarbotao">
+                            <button onclick="confirmarButton()">Confirmar</button>
+                            <button id='buttonfechar' onclick="fecharPop()">Cancelar</button>
+                        </div>
+                        </div>
+                        </div>
             </section>
             <section id="pacientes-exibir"class="pacientes">
                 <p id="pacientes-titulo">Pacientes de hoje:</p>

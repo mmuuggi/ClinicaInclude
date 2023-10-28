@@ -3,9 +3,12 @@ package com.example.clinica.controller;
 
 import com.example.clinica.repository.ConsultasRepository;
 import com.example.clinica.repository.DiasRepository;
+import com.example.clinica.services.ApiResponse;
 import com.example.clinica.services.DesmarcarService;
 import com.example.clinica.services.desmarcarResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,7 +25,9 @@ public class desmarcarConsultaController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "Content-Type")
     @DeleteMapping
-    public void desmarcarConsulta(@RequestBody desmarcarResponse data){
+    public ResponseEntity<ApiResponse> desmarcarConsulta(@RequestBody desmarcarResponse data){
         desmarcarService.desmarcarConsulta(data);
+        ApiResponse response = new ApiResponse("Ok");
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
