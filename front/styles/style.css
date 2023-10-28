@@ -237,4 +237,6 @@ body{
     text-align: left;
 }
 
-    
+#popup{
+    display: none;
+} 

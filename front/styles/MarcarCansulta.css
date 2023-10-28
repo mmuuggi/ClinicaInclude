@@ -402,6 +402,7 @@ textarea::placeholder {
 }
 .boxDaBox button{
     display: flex;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
     width: 300px;

@@ -144,7 +144,9 @@ function cadastrarEspecialidade(){
 
 function cadastroEspecialidade(element){
     let esp = element.querySelector("p").textContent;
-    
+    document.getElementById('janelaCadastro').style.display = 'none';
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('nomeEspecialidade').textContent = esp;
 
 }
 
@@ -188,7 +190,6 @@ function pesquisarMedico(){
             });
         } else if (response.status == 400) {
             nomeMedico.textContent = 'Email em formato inválido';
-            nomeMedico.textContent = 'Médico não encontrado.';
             nomeMedico.addEventListener('click', function(event){
                 event.preventDefault();
             })
@@ -201,3 +202,17 @@ function pesquisarMedico(){
     });
 }
 
+function confirmarButton(){
+    let input = document.getElementById('especialidadeInput').value;
+    if(input == 'Confirmar'){
+        console.log("conexão com bd");
+    }else{
+        console.log(2);
+    }
+
+}
+
+function fechar(){
+    document.getElementById('especialidadeButton').style.display = 'block';
+    document.getElementById('popup').style.display = 'none';
+}

@@ -48,8 +48,8 @@
             <div>
             <h1>Ano:</h1>
             <div class="Datasano">
-                <button>2023</button>
-                <button>2024</button>
+                <button data-ano="2023">2023</button>
+                <button data-ano="2024">2024</button>
             </div >
         </div>
             <div>
@@ -57,18 +57,18 @@
         
             <select id="mes" name="mes"  placeholder="Escolha sua data:">
                 <option value="" disabled selected>Escolha sua data:</option>
-                <option value="janeiro">Janeiro</option>
-                <option value="fevereiro">Fevereiro</option>
-                <option value="março">Março</option>
-                <option value="abril">Abril</option>
-                <option value="maio">Maio</option>
-                <option value="junho">Junho</option>
-                <option value="julho">Julho</option>
-                <option value="agosto">Agosto</option>
-                <option value="setembro">Setembro</option>
-                <option value="outubro">Outubro</option>
-                <option value="novembro">Novembro</option>
-                <option value="dezembro">Dezembro</option>
+                <option value="01">Janeiro</option>
+                <option value="02">Fevereiro</option>
+                <option value="03">Março</option>
+                <option value="04">Abril</option>
+                <option value="05">Maio</option>
+                <option value="06">Junho</option>
+                <option value="07">Julho</option>
+                <option value="08">Agosto</option>
+                <option value="09">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
               </select>
             </div>
             <div>
@@ -83,16 +83,14 @@
             <div >
                 <div class="boxDaBox">
                     
-                    <div class="teteinput">
-                        <textarea name="textarea" rows="10" cols="50" placeholder="Detalhe aqui o motivo da sua consulta..."></textarea>
-                </div>
                 <div>
-                <button>Marcar Consulta</button>
+                <button onclick="oii()">Filtrar</button>
             </div>
         </div>
     </div>
     </div>
 </div>
+<script src="js/marcarConsulta.js"></script>
 <script src="numeros.js"></script>
 <script src="js/index.js"></script>
 </body>
