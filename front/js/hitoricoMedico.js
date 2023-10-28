@@ -7,11 +7,13 @@ function stringParaData(dataString) {
     const [dia, mes, ano] = dataString.split('/').map(Number);
     return new Date(ano, mes - 1, dia);
 }
+
 function removerHora(data) {
     const novaData = new Date(data);
     novaData.setHours(0, 0, 0, 0);
     return novaData;
 }
+
 function carregarHistoricoMedico() {
     const consultas = localStorage.getItem('minhasConsultas');
     const container = document.getElementById('Datas');

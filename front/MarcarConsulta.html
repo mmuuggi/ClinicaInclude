@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +16,15 @@
         <h2>Meu perfil</h2>
     </div>
 </a>
+<a onclick="deslogar()"><img id="ExitButton" src="image/ExitButton.svg" alt=""></a>
     </div>
-        <img id="ExitButton" src="image/ExitButton.svg" alt="">
+        
     </header> 
+
     <div class="center">
+        <div>
+            <a href="perfilPaciente.html"><img src="image/BackButton.svg" alt=""></a>
+        </div>
     <div class="P1">
         <h1>Filtrar por:</h1>
         <div class="Filtrar">
@@ -39,57 +44,45 @@
                 </a>
             </div>
         </div>
-        <div>
-            
+        <div class="DiaMesAno">
+            <div>
+            <h1>Ano:</h1>
+            <div class="Datasano">
+                <button>2023</button>
+                <button>2024</button>
+            </div >
         </div>
-            <h1>Escolha a Data:</h1>
-            <div class="EscolhaData">
-                <div class="boxData">
-                    <div>
-                        <h2>12.</h2>
-                        <h3>Set</h3>
-                        <span>Terç.</span>
-                    </div>
-                    <div>
-                        <h2>12.</h2>
-                        <h3>Set</h3>
-                        <span>Terç.</span>
-                    </div>
-                    <div>
-                        <h2>12.</h2>
-                        <h3>Set</h3>
-                        <span>Terç.</span>
-                    </div>
-                </div>
-                <div class="boxhorario">
-                    <div class="horario">
-                        <div>
-                            <h2>14:00</h2>
-                        </div>
-                        <div>
-                            <h2>14:00</h2>
-                        </div>
-                        <div>
-                            <h2>14:00</h2>
-                        </div>
-                    </div>
-                </div>
+            <div>
+            <h1>Mês:</h1>
+        
+            <select id="mes" name="mes"  placeholder="Escolha sua data:">
+                <option value="" disabled selected>Escolha sua data:</option>
+                <option value="janeiro">Janeiro</option>
+                <option value="fevereiro">Fevereiro</option>
+                <option value="março">Março</option>
+                <option value="abril">Abril</option>
+                <option value="maio">Maio</option>
+                <option value="junho">Junho</option>
+                <option value="julho">Julho</option>
+                <option value="agosto">Agosto</option>
+                <option value="setembro">Setembro</option>
+                <option value="outubro">Outubro</option>
+                <option value="novembro">Novembro</option>
+                <option value="dezembro">Dezembro</option>
+              </select>
+            </div>
+            <div>
+              <h1>Dia:</h1>
+              <select id="dia" name="dia">
+                <option value="" disabled selected>Escolha sua data:</option>
+              </select>
+            </div>
             </div>
         </div>
         <div class="Escolha">
             <div >
                 <div class="boxDaBox">
-                    <div class="boxEscolha">
-                        <div>
-                            <h2>Primeiro Exame</h2>
-                        </div>
-                        <div>
-                            <h2>Retorno de Exame Antigo</h2>
-                        </div>
-                        <div>
-                            <h2>Encaminhamento de outro médico</h2>
-                        </div>
-                    </div>
+                    
                     <div class="teteinput">
                         <textarea name="textarea" rows="10" cols="50" placeholder="Detalhe aqui o motivo da sua consulta..."></textarea>
                 </div>
@@ -100,5 +93,7 @@
     </div>
     </div>
 </div>
+<script src="numeros.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

@@ -33,13 +33,12 @@ body{
     justify-content: center;
 }
 #hpacient{
-    position: absolute;
     top: 550px;
 }
 .pefilPac h1{
     font-size: 40px;
 }
-#datap{
+#teste{
     display: flex;
     width: 300px;
     height: 150px;
@@ -51,6 +50,7 @@ body{
     align-items: center;
     justify-content: center;
 }
+
 #Datas{
     display: flex;
     

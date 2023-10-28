@@ -1,4 +1,4 @@
-function login(){
+function login() {
     email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
@@ -17,37 +17,40 @@ function login(){
         }
     })
     .then(response => {
-        if(response.status == 200){
+        if (response.status == 200) {
             return response.json();
-        }else{
-            throw new Error("Erro na solicitação: " + response.body)
+        } else {
+            return response.json().then(data => {
+                let message = document.getElementById('messageErro');
+                message.textContent = data.message;
+                throw new Error(data.message); // Lançar uma exceção para tratamento de erro
+            });
         }
     })
-    .then(data =>{
+    .then(data => {
         localStorage.setItem('email', data.email);
         localStorage.setItem('name', data.name);
         localStorage.setItem('role', data.role);
-        if(localStorage.getItem('role') == 'Médico'){
-            if(data.especialidade !== null){
+        
+        if (data.role == 'Médico') {
+            if (data.especialidade !== null) {
                 localStorage.setItem('especialidade', data.especialidade);
-            }else{
+            } else {
                 localStorage.setItem('especialidade', '');
             }
         }
         window.location.href = 'homePageLogada.html';
     })
-    .catch(error =>{
-        alert(error.message);
-    });
 }
+
 
 function perfilPage(){
     if(localStorage.getItem('role') == 'Paciente'){
         window.location.href='perfilPaciente.html';
-    }else if(localStorage.getItem('role') =='Médico'){
+    }else if(localStorage.getItem('role') == 'Médico'){
         window.location.href='perfilDoutor.html'
-    }else{
-        console.log(localStorage.getItem('name'));
+    }else if(localStorage.getItem('role') == 'Recepcionista'){
+        window.location.href = 'perfilRecepcao.html';
     }
 }
 
@@ -57,13 +60,19 @@ function cadastro(){
     let name = document.getElementById("name").value;
     let cpf = document.getElementById("cpf").value;
     let idServidor = document.getElementById("idServidor").value;
-
+    if(idServidor == 'medicomtosupinpa'){
+        idServidor = 'Médico';
+    }else if(idServidor == 'recepcionistamtosupinpa'){
+        idServidor = 'recepcionistamtosupinpa';
+    }else{
+        idServidor = 'Paciente';
+    }
     const data = {
         email: email,
         password: password,
         name: name,
         cpf: cpf,
-        idServidor: idServidor,
+        role: idServidor,
         message: ""
     };
 
@@ -85,12 +94,10 @@ function cadastro(){
         }
     })
     .then(data =>{
-        console.log(data.message)
+        let message = document.getElementById('messageErro');
+        message.textContent = data.message;
     }
         )
-    .catch(error =>{
-        alert(error.message);
-    });
 }
 function deslogar(){
     localStorage.clear();

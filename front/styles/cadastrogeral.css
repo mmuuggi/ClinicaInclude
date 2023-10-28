@@ -117,3 +117,8 @@ body{
     margin-top: -65px;
     margin-left: 500px;
 }
+#messageErro{
+    text-align: center;
+    font-family: "Trebuchet MS";
+    color: red;
+}

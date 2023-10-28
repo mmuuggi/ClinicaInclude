@@ -83,9 +83,9 @@ function carregarConsultasPacientes() {
             let dataConsultaSemHora = removerHora(dataConsulta);
             if (dataConsultaSemHora >= dataAtualSemHora) {
                 const div = document.createElement('div');
-                div.id = 'datap';
+                div.id = 'teste';
                 div.innerHTML = `
-                    <h2>${consulta.data_consulta}</h2>
+                    <h2 >${consulta.data_consulta}</h2>
                     <p>${consulta.especialidade}</p>
                 `;
                 container.appendChild(div);
@@ -95,7 +95,7 @@ function carregarConsultasPacientes() {
         if (i === 0) {
             const div = document.createElement('div');
             div.innerHTML = `
-                <h2>Sem consultas!</h2>
+                <h2 id='teste' >Sem consultas!</h2>
             `;
             container.appendChild(div);
         }

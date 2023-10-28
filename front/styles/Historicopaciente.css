@@ -92,6 +92,7 @@ body{
     justify-content: space-between;
     margin: 20px;
 }
+  
 .examepopup{
     display: none;
     flex-direction: column;
