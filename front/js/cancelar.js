@@ -56,22 +56,36 @@ function carregarNome(){
     UserName.textContent = name;
 }
 
-
 function abrir(idConsulta){
-    console.log(idConsulta)
     const consultas = localStorage.getItem('minhasConsultas');
     const container = document.getElementById('container-pop');
     if(consultas){
         const consulta = JSON.parse(consultas);
         const consultaEncontrada = consulta.find(consulta => consulta.id === idConsulta);
         if(consultaEncontrada){
+            localStorage.setItem('nameMedico1', consultaEncontrada.nome_medico);
+            localStorage.setItem('especialidadeMedico1', consultaEncontrada.especialidade);
+            localStorage.setItem('horaMedico1', consultaEncontrada.hora_consulta);
+            localStorage.setItem('dataMedico1', consultaEncontrada.data_consulta);
+            localStorage.setItem('idMedico1', consultaEncontrada.id);
+            localStorage.setItem('emailMedico1', consultaEncontrada.email_medico);
             const div = document.createElement('div');
             div.id = 'popup';
             div.classList.add('examepopup');
-            div.innerHTML = `<h1 id="especialidadePopUPTitle"></h1>
-            <h2 id="dataPopUPTitle"></h2>
+            div.innerHTML = `           <div id='headerHistoricoPop'>
             <div>
-            <p>
+                <a href="javascript:fechar()">
+                    <img src="image/BackButton.svg" alt="">
+                </a>
+            </div>
+            <div>
+                <h1 id="especialidadePopUPTitle"></h1>
+                <h2 id="dataPopUPTitle"></h2>
+            </div>
+        </div>
+        <div id="teste12" >
+        <div>
+        <p>
             <span>Nome do Paciente:</span>
             <span id="nomePacientePopUP"></span>
         </p>
@@ -95,10 +109,17 @@ function abrir(idConsulta){
                 <span>Descrição:</span>
                 <span id="descricaoPacientePopUP"></span>
             </p>
-            <a href="javascript:fechar()">
-                <img src="image/BackButton.svg" alt="">
-            </a>
-        </div>`
+    </div>
+    <div id='testeimg' >
+    <div>
+    <p>Exame:</p>
+        <img src="image/image 2.svg" alt="">
+    </div>
+    </div>
+    </div>
+    <div id='botoesHistorico'>
+    <a id='buttonHistorico' onclick='cancelarConsulta()'>Cancelar consulta</a>
+    </div>`
         container.appendChild(div);
             document.getElementById('dataPopUPTitle').textContent = consultaEncontrada.data_consulta;
             document.getElementById('especialidadePopUPTitle').textContent = consultaEncontrada.especialidade;
@@ -122,4 +143,25 @@ function abrir(idConsulta){
 
 function fechar(){
     document.getElementById('popup').style.display= 'none';
+}
+
+function cancelarConsulta(){
+
+    const data = {
+        id: localStorage.getItem('idMedico1'),
+        email: localStorage.getItem('emailMedico1'),
+        nome:localStorage.getItem('nameMedico1'),
+        especialidade: localStorage.getItem('especialidadeMedico1'),
+        data_consulta: localStorage.getItem('dataMedico1'),
+        hora_consulta: localStorage.getItem('horaMedico1')
+    };
+
+    fetch('https://includeapi-production.up.railway.app/desmarcar', {
+        method: 'DELETE',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+    window.location.href = 'perfilPaciente.html';
 }
