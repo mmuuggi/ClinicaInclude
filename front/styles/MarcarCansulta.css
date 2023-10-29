@@ -113,6 +113,26 @@ body{
     margin: 20px;
     margin-left: 0px;
 }
+
+.Filtrar .datacor{
+    background:#1D3461;
+    
+}
+.Filtrar .datacor h2{
+    color: white;
+}
+.Filtrar .especialidadecor {
+    background:#1D3461;
+}
+.Filtrar .especialidadecor h2{
+    color: white;
+}
+.Filtrar .medicocor{
+    background:#1D3461;
+}
+.Filtrar .medicocor h2{
+    color: white;
+}
 .EscolhaData {
     width: 510px;
     border-radius: 5px;
