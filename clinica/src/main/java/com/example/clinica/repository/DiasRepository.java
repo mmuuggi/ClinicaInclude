@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface DiasRepository extends JpaRepository<DiasMedicos, Long> {
         List<DiasMedicos> findByEmail(String email);
+        List<DiasMedicos> findByData_consulta(String dataConsulta);
+        List<DiasMedicos> findByNome(String nome);
+        List<DiasMedicos> findByEspecialidade(String especialidade);
 }

@@ -16,7 +16,6 @@ function criarOpcoesDias() {
     return select.options;
   }
   criarOpcoesDias()
-//Função que muda as cores dos botões
   const meusBotoes = document.querySelectorAll(".meusBotoes");
 
 meusBotoes.forEach(botao => {
@@ -27,4 +26,3 @@ meusBotoes.forEach(botao => {
     botao.classList.add("clicked");
   });
 });
-//Função que muda as cores dos botões

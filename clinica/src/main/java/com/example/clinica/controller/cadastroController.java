@@ -26,15 +26,11 @@ public class cadastroController {
     @PostMapping
     public ResponseEntity<ApiResponse> cadastro(@RequestBody UsersRequestDTO data){
         if (isValidEmail(data.email()) && validarCPF(data.cpf()) && senhaValida(data.password()) && nomeValido(data.name())) {
-            System.out.println(isValidEmail(data.email()));
-            System.out.println(validarCPF(data.cpf()));
-            System.out.println(senhaValida(data.password()));
-            System.out.println(nomeValido(data.name()));
             try{
                 UsersRequestDTO users;
-                if(Objects.equals(data.role(), "medicomtosupinpa")){
+                if(Objects.equals(data.role(), "Médico")){
                     users = new UsersRequestDTO(data.name(), data.email(), data.password(), data.cpf(), "Médico", data.especialidade());
-                }else if(Objects.equals(data.role(), "recepcionistamtosupinpa")){
+                }else if(Objects.equals(data.role(), "Recepcionista")){
                     users = new UsersRequestDTO(data.name(), data.email(), data.password(), data.cpf(), "Recepcionista", null);
                 }else{
                     users = new UsersRequestDTO(data.name(), data.email(), data.password(), data.cpf(), "Paciente", null);

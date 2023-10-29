@@ -377,6 +377,7 @@ body{
 }
 .teteinput{
     display: flex;
+    padding-top: 50vh;
     margin-top: 20px;
 }
 .teteinput textarea{

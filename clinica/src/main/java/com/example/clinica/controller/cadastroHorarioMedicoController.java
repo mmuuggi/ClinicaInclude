@@ -7,20 +7,21 @@ import com.example.clinica.services.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/cadastrarHorario")
+@RequestMapping("/cadastrarhorario")
 public class cadastroHorarioMedicoController {
-    @Autowired
+
     DiasRepository diasRepository;
 
     @CrossOrigin(origins = "*", allowedHeaders = "Content-Type")
     @PostMapping
-    public ResponseEntity<ApiResponse> cadastroDias(@RequestBody DiasMedicos data) {
+    public ResponseEntity<ApiResponse> cadastroMedico(@RequestBody DiasMedicos data) {
         List<DiasMedicos> medicos = diasRepository.findByEmail(data.getEmail());
         ApiResponse cadastroDTO;
         if(medicos.isEmpty()){
@@ -29,7 +30,6 @@ public class cadastroHorarioMedicoController {
             DiasMedicos medicoData = new DiasMedicos(medico);
             diasRepository.save(medicoData);
             cadastroDTO = new ApiResponse("Cadastrado com sucesso!");
-            return new ResponseEntity<>(cadastroDTO, HttpStatus.OK);
         }else {
             for (DiasMedicos medico : medicos) {
                 if(Objects.equals(medico.getData_consulta(), data.getData_consulta()) && Objects.equals(medico.getHora_consulta(), data.getHora_consulta())){
@@ -42,7 +42,7 @@ public class cadastroHorarioMedicoController {
             DiasMedicos medicoData = new DiasMedicos(medico);
             diasRepository.save(medicoData);
             cadastroDTO = new ApiResponse("Cadastrado com sucesso");
-            return new ResponseEntity<>(cadastroDTO, HttpStatus.OK);
         }
+        return new ResponseEntity<>(cadastroDTO, HttpStatus.OK);
     }
 }

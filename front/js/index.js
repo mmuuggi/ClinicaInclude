@@ -53,12 +53,20 @@ function perfilPage(){
     }
 }
 
-function cadastro(){
+function cadastro(a){
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
     let name = document.getElementById("name").value;
     let cpf = document.getElementById("cpf").value;
-    let idServidor = document.getElementById("idServidor").value;
+    let idServidor;
+    if(a == 1 ){
+        idServidor = document.getElementById("idServidor").value;
+    }else{
+        idServidor = '';
+    }
+    if(email == '' && password == '' && name == '' && cpf == ''){
+        document.getElementById('messageErro').textContent = 'Os campos não podem ser nulos';
+    }else{
     if(idServidor == 'medicomtosupinpa'){
         idServidor = 'Médico';
     }else if(idServidor == 'recepcionistamtosupinpa'){
@@ -98,6 +106,7 @@ function cadastro(){
         message.textContent = data.message;
     }
         )
+    }
 }
 
 function deslogar(){

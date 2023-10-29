@@ -31,7 +31,7 @@ function carregarConsultasPacientes() {
                 div.id = 'datap';
                 div.classList.add(consultaId);
                 div.innerHTML = `
-                <a href='javascript:abrir(${consultaId})'>
+                <a onclick="abrir(${consultaId})">
                     <h2>${consulta.data_consulta}</h2>
                     <span>${consulta.especialidade}</span>
                     </a>
@@ -118,7 +118,7 @@ function abrir(idConsulta){
     </div>
     </div>
     <div id='botoesHistorico'>
-    <a id='buttonHistorico' onclick='cancelarConsulta()'>Cancelar consulta</a>
+    <a id='buttonHistorico' onclick="cancelarConsulta()">Cancelar consulta</a>
     </div>`
         container.appendChild(div);
             document.getElementById('dataPopUPTitle').textContent = consultaEncontrada.data_consulta;

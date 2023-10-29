@@ -21,7 +21,7 @@ public class pesquisarController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "Content-Type")
     @PostMapping
-    public ResponseEntity<ApiResponse> pesquisarMedico(@RequestBody UsersRequestDTO data){
+    public ResponseEntity<ApiResponse> pesquisarController(@RequestBody UsersRequestDTO data){
         ApiResponse pesquisaDTO;
         if(isValidEmail(data.email())){
             Users user = usersRepository.findByEmail(data.email());

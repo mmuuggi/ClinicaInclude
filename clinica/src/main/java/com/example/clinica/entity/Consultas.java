@@ -37,4 +37,8 @@ public class Consultas {
         this.descricao_medico = consulta.descricao_medico();
         this.medicoEmail = consulta.medicoEmail();
     }
+
+    public void setDescricao_medico(String descricao_medico) {
+        this.descricao_medico = descricao_medico;
+    }
 }

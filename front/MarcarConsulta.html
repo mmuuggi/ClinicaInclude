@@ -44,12 +44,8 @@
                 </a>
             </div>
         </div>
-        <div class="Escolhamedico"> 
-            <a href="MarcarConsultaMedico02.html">
-                <div>
-                    <img src="image/image 1.svg" alt="">
-                    <h2>Dr. Exemplo Costa</h2>
-                </div>
+        <div id="containerMedico" class="Escolhamedico"> 
+
             </a>
             
         </div>
@@ -58,9 +54,8 @@
             <div>
             <h1>Ano:</h1>
             <div class="Datasano">
-                <button class="meusBotoes">2023</button>
-                
-                <button class="meusBotoes">2024</button>
+                <button class="meusBotoes" data-ano="2023">2023</button>
+                <button class="meusBotoes" data-ano="2024">2024</button>
             </div >
         </div>
             <div>
@@ -91,9 +86,8 @@
             <div class="Escolha">
                 <div >
                     <div class="boxDaBox">
-                        
                     <div>
-                    <button onclick="oii()">Filtrar</button>
+                    <button onclick="filtrar()">Filtrar</button>
                 </div>
             </div>
         </div>
@@ -101,8 +95,8 @@
             </div>
         
 </div>
-<script src="js/marcarConsulta.js"></script>
 <script src="numeros.js"></script>
 <script src="js/index.js"></script>
+<script src="js/filtro.js"></script>
 </body>
 </html>

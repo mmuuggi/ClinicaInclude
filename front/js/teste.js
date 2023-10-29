@@ -49,7 +49,7 @@ function consultas(){
     .then(data => {
         const consultas = data.consultas;
         localStorage.setItem('minhasConsultas', JSON.stringify(consultas));
-        if(localStorage.getItem('role') == 'Médico'){
+        if(localStorage.getItem('role') == 'Médico'){consultas
             carregarConsultasMedicos();
         }else{
             carregarConsultasPacientes();
@@ -153,13 +153,15 @@ function cadastroEspecialidade(element){
 
 }
 
-function pesquisarMedico(){
+function pesquisarMedico(a){
+    console.log(1);
     let email = document.getElementById('email').value;
     let nomeMedico = document.getElementById('nameMedico');
     const data = {
-        email: email
+        email: email,
+        role: a
     };
-    fetch('https://includeapi-production.up.railway.app/pesquisarmedico', {
+    fetch('http://localhost:3000/pesquisar', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -173,8 +175,18 @@ function pesquisarMedico(){
                 let role = data.role;
                 let especialidade = data.especialidade;
                 let message = data.message;
-                console.log(especialidade);
                 let email = data.email;
+                if(role == 'Paciente'){
+                    localStorage.setItem('nomePaciente', name);
+                    localStorage.setItem('emailPaciente', email);
+                    localStorage.setItem('rolePaciente', role);
+                    localStorage.setItem('especialidadePaciente', especialidade);
+                    nomeMedico.textContent = name;
+                    document.getElementById('MsgErro').textContent = '';
+                    nomeMedico.addEventListener('click', function(){
+                        window.location.href = 'perfilRecepicaoEdicaomed02.html';
+                    })
+                }else{
                 if(especialidade == null){
                     console.log('1' + especialidade);
                     nomeMedico.textContent = name + ' - Especialidade não cadastrada.';
@@ -194,6 +206,7 @@ function pesquisarMedico(){
                         window.location.href = 'perfilRecepicaoEdicaomed02.html';
                     })
                 }
+            }
                 
             });
         } else if (response.status == 400) {
@@ -202,7 +215,11 @@ function pesquisarMedico(){
                 event.preventDefault();
             })
         } else {
-            nomeMedico.textContent = 'Médico não encontrado.';
+            if(a == 'Paciente'){
+                nomeMedico.textContent = 'Paciente não cadastrado';
+            }else{
+                nomeMedico.textContent = 'Médico não encontrado.';
+            }
             nomeMedico.addEventListener('click', function(event){
                 event.preventDefault();
             })

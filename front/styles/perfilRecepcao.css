@@ -335,3 +335,8 @@ body{
 #popup{
     display: none;
 }
+
+.t{
+    display: flex;
+    flex-direction: column;
+}

@@ -45,36 +45,17 @@
             </div>
         </div>
         <h1>Médicos Encontrados:</h1>
-        <div class="Escolhamedico"> 
-            
-            <a href="MarcarConsultaMedico02.html">
-                <div>
-                    <img src="image/image 1.svg" alt="">
-                    <h2>Dr. Exemplo Costa</h2>
-                </div>
-            </a>
-            <a href="MarcarConsultaMedico02.html">
-                <div>
-                    <img src="image/image 1.svg" alt="">
-                    <h2>Dr. Exemplo Costa</h2>
-                </div>
-            </a>
-            <a href="MarcarConsultaMedico02.html">
-                <div>
-                    <img src="image/image 1.svg" alt="">
-                    <h2>Dr. Exemplo Costa</h2>
-                </div>
-            </a>
+        <div id='medicoAchados-Container' class="Escolhamedico"> 
             
         </div>
         </div>
         <div class="EspEscolher">
             <div class="pesquisa">
-        <h1>Escolha a especialidade:</h1>
+        <h1>Digite o nome do médico:</h1>
         <div>
             <div id="flexData">
             <input id="email" type="text">
-            <button onclick="pesquisarMedico()"><img src="imagerecepicao/material-symbols_search.svg" alt=""></button>
+            <button onclick="filtroMedico()"><img src="imagerecepicao/material-symbols_search.svg" alt=""></button>
     </div>
     </div>
 </div>
@@ -83,7 +64,7 @@
                 <div class="boxDaBox">
                     
                 <div>
-                <button onclick="oii()">Filtrar</button>
+                <button onclick="filtrar()">Filtrar</button>
             </div>
         </div>
     </div>
@@ -93,5 +74,6 @@
 <script src="js/marcarConsulta.js"></script>
 <script src="numeros.js"></script>
 <script src="js/index.js"></script>
+<script src="js/filtro.js"></script>
 </body>
 </html>
