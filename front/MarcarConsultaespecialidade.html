@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +16,15 @@
         <h2>Meu perfil</h2>
     </div>
 </a>
+<a onclick="deslogar()"><img id="ExitButton" src="image/ExitButton.svg" alt=""></a>
     </div>
-        <img id="ExitButton" src="image/ExitButton.svg" alt="">
-    </header>
+        
+    </header> 
+
     <div class="center">
+        <div id="retorno">
+            <a href="perfilPaciente.html"><img src="image/BackButton.svg" alt=""></a>
+        </div>
     <div class="P1">
         <h1>Filtrar por:</h1>
         <div class="Filtrar">
@@ -39,10 +44,20 @@
                 </a>
             </div>
         </div>
-        <div>
+        <h1>Médicos Encontrados:</h1>
+        <div class="Escolhamedico"> 
+            
+            <a href="MarcarConsultaMedico02.html">
+                <div>
+                    <img src="image/image 1.svg" alt="">
+                    <h2>Dr. Exemplo Costa</h2>
+                </div>
+            </a>
             
         </div>
-            <h1>Escolha a especialidade:</h1>
+        </div>
+        <div class="EspEscolher">
+        <h1>Escolha a especialidade:</h1>
             <div class="EscolhaEspecialidade">
                 <a href="MarcarConsultaespecialidade 02.html">
                 <div>
@@ -108,32 +123,21 @@
             
                 </div>
             </a>
-            </div>
         </div>
-            <div class="Escolha">
+        <div class="Escolha">
             <div >
                 <div class="boxDaBox">
-                    <div class="boxEscolha">
-                        <div>
-                            <h2>Primeiro Exame</h2>
-                        </div>
-                        <div>
-                            <h2>Retorno de Exame Antigo</h2>
-                        </div>
-                        <div>
-                            <h2>Encaminhamento de outro médico</h2>
-                        </div>
-                    </div>
-                    <div class="teteinput">
-                        <textarea name="textarea" rows="10" cols="50" placeholder="Detalhe aqui o motivo da sua consulta..."></textarea>
-                </div>
+                    
                 <div>
-                <button>Marcar Consulta</button>
+                <button onclick="oii()">Filtrar</button>
             </div>
-                </div>
-            </div>
+        </div>
     </div>
-
+    </div>
+    </div>
 </div>
+<script src="js/marcarConsulta.js"></script>
+<script src="numeros.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

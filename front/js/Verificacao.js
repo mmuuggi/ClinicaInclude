@@ -6,9 +6,6 @@ let form = document.querySelector('form');
 form.addEventListener('submit', (e)=>{
     if(email.value == '' && password.value == ''){
         textForm.textContent = 'voce precisa prencher todos os capos!'
-    }else{
-        console.log(email.value);
-        console.log(password.value); 
     }
     e.preventDefault();
 })

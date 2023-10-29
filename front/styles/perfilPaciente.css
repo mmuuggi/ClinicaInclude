@@ -2,9 +2,12 @@
     margin: 0px;
     padding: 0px;
 }
+a{
+    text-decoration: none;
+}
 
 body{
-    background-color: #1D3461;
+    background-color:#1D3461;
 }
 .pefilPac{
     display: flex;
@@ -17,7 +20,7 @@ body{
     flex-direction: column;
     background-color: white;
     margin-top: 80px;
-    height: 850px;
+    height: auto;
     width: 1200px;
     border-radius: 20px;
 }
@@ -53,7 +56,20 @@ body{
 
 #Datas{
     display: flex;
+    flex-wrap: wrap;
     
+}
+#Datas div{
+    display: flex;
+    width: 200px;
+    height: 100px;
+    background-color: #F6F7F8;
+    box-shadow: 0px 0px 6px;
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
 }
 #blocoAlign{
     display: flex;
@@ -89,4 +105,93 @@ body{
     align-items: center;
     justify-content: space-between;
     margin: 20px;
+}
+/* NotaPessoalMedico*/
+#NotaMedico{
+    display: flex;
+    width: 1000px;
+    height: 150px;
+    background-color: #F6F7F8;
+    box-shadow: 0px 0px 6px;
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+}
+#NotaMedico h2{
+    color: #1D3461;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.9px;
+}
+#NotaMedico h3{
+    color: #1D3461;
+    font-family: Trebuchet MS;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.6px;   
+}
+.Stilo{
+    display: flex;
+}
+#marg{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+/*heder do NotaPessoalMedico*/
+.Headermarca{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#Openmoji{
+    width: 102px;
+    height: 102px;
+}
+.openmoji_person{
+    display: flex;
+}
+.openmoji_person a{
+    display: flex;
+    align-items: center;
+    
+}
+footer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: linear-gradient(0deg, #F6F7F8 86.02%, #F6F7F8 86.02%, rgba(246, 247, 248, 0.00) 100%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    padding: 10px;
+    
+}
+#AddNota{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 285px;
+    height: 81px;
+    border-radius: 15px;
+    background: #1D3461;
+    color: #FFF;
+    font-family: Trebuchet MS;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+}
+#cor{
+    background-color: white;
 }

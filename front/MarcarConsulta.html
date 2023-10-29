@@ -22,7 +22,7 @@
     </header> 
 
     <div class="center">
-        <div>
+        <div id="retorno">
             <a href="perfilPaciente.html"><img src="image/BackButton.svg" alt=""></a>
         </div>
     <div class="P1">
@@ -44,10 +44,29 @@
                 </a>
             </div>
         </div>
+        <div class="Escolhamedico"> 
+            <a href="MarcarConsultaMedico02.html">
+                <div>
+                    <img src="image/image 1.svg" alt="">
+                    <h2>Dr. Exemplo Costa</h2>
+                </div>
+            </a>
+            
+        </div>
+        </div>
+        <div class="DiaMesAno">
+            <div>
+            <h1>Ano:</h1>
+            <div class="Datasano">
+                <button class="meusBotoes">2023</button>
+                
+                <button class="meusBotoes">2024</button>
+            </div >
+        </div>
             <div>
             <h1>Mês:</h1>
         
-            <select id="mes" name="mes"  placeholder="Escolha sua data:">
+            <select id="mes" name="mes">
                 <option value="" disabled selected>Escolha sua data:</option>
                 <option value="01">Janeiro</option>
                 <option value="02">Fevereiro</option>
@@ -69,18 +88,18 @@
                 <option value="" disabled selected>Escolha sua data:</option>
               </select>
             </div>
+            <div class="Escolha">
+                <div >
+                    <div class="boxDaBox">
+                        
+                    <div>
+                    <button onclick="oii()">Filtrar</button>
+                </div>
             </div>
         </div>
-        <div class="Escolha">
-            <div >
-                <div class="boxDaBox">
-                    
-                <div>
-                <button onclick="oii()">Filtrar</button>
-            </div>
         </div>
-    </div>
-    </div>
+            </div>
+        
 </div>
 <script src="js/marcarConsulta.js"></script>
 <script src="numeros.js"></script>
