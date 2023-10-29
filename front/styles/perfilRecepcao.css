@@ -232,7 +232,10 @@ body{
     border: none;
     outline: none;
 }
-
+.Datasano button.clicked{
+    background-color: #1D3461;
+    color: white;
+}
 .DiaMesAno h1{
     text-align: center;
 }

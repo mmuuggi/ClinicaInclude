@@ -146,7 +146,7 @@ body{
     width: 720px;
     flex-wrap: wrap;
 }
-.EscolhaEspecialidade div{
+.EscolhaEspecialidade .especialidadeItem{
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -157,7 +157,12 @@ body{
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
 }
-
+.EscolhaEspecialidade .especialidadeItem.clicked {
+    background-color: #1D3461;
+}
+.EscolhaEspecialidade .especialidadeItem.clicked h2{
+    color: white;
+  }
 .EscolhaEspecialidade h2{
     color: #1D3461;
     font-family: 'Trebuchet MS';
