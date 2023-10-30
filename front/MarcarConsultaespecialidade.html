@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,15 +16,20 @@
         <h2>Meu perfil</h2>
     </div>
 </a>
+<a onclick="deslogar()"><img id="ExitButton" src="image/ExitButton.svg" alt=""></a>
     </div>
-        <img id="ExitButton" src="image/ExitButton.svg" alt="">
-    </header>
+        
+    </header> 
+
     <div class="center">
+        <div id="retorno">
+            <a href="perfilPaciente.html"><img src="image/BackButton.svg" alt=""></a>
+        </div>
     <div class="P1">
         <h1>Filtrar por:</h1>
         <div class="Filtrar">
-            <div>
-                <a href="MarcarConsulta.html">
+            <div >
+                <a class="especialidadecor" href="MarcarConsulta.html">
                     <h2>Data:</h2>
                 </a>
             </div>
@@ -34,106 +39,83 @@
                 </a>
             </div>
             <div>
-                <a href="MarcarConsultaMedico.html">
+                <a class="especialidadecor" href="MarcarConsultaMedico.html">
                 <h2>Médico</h2>
                 </a>
             </div>
         </div>
-        <div>
+        <h1>Médicos Encontrados:</h1>
+        <div id="medicoAchados-Container" class="Escolhamedico"> 
             
         </div>
-            <h1>Escolha a especialidade:</h1>
-            <div class="EscolhaEspecialidade">
-                <a href="MarcarConsultaespecialidade 02.html">
-                <div>
-                    
-                    <h2>Exemplo De Especialidade</h2>
-                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
-            
-                </div>
-            </a>
-            <a href="MarcarConsultaespecialidade 02.html">
-                <div>
-                    
-                    <h2>Exemplo De Especialidade</h2>
-                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
-            
-                </div>
-            </a>
-            <a href="MarcarConsultaespecialidade 02.html">
-                <div>
-                    
-                    <h2>Exemplo De Especialidade</h2>
-                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
-            
-                </div>
-            </a>
-            <a href="MarcarConsultaespecialidade 02.html">
-                <div>
-                    
-                    <h2>Exemplo De Especialidade</h2>
-                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
-            
-                </div>
-            </a>
-            <a href="MarcarConsultaespecialidade 02.html">
-                <div>
-                    
-                    <h2>Exemplo De Especialidade</h2>
-                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
-            
-                </div>
-            </a>
-            <a href="MarcarConsultaespecialidade 02.html">
-                <div>
-                    
-                    <h2>Exemplo De Especialidade</h2>
-                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
-            
-                </div>
-            </a>
-            <a href="MarcarConsultaespecialidade 02.html">
-                <div>
-                    
-                    <h2>Exemplo De Especialidade</h2>
-                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
-            
-                </div>
-            </a>
-            <a href="MarcarConsultaespecialidade 02.html">
-                <div>
-                    
-                    <h2>Exemplo De Especialidade</h2>
-                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
-            
-                </div>
-            </a>
-            </div>
         </div>
-            <div class="Escolha">
+        <div class="EspEscolher">
+        <h1>Escolha a especialidade:</h1>
+            <div id="escolhaTesteId" class="EscolhaEspecialidade">
+                <a onclick="pegarItem(this)" >
+                <div class="especialidadeItem">
+                    <h2>Psicólogo</h2>
+                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
+            
+                </div>
+            </a>
+            <a onclick="pegarItem(this)">
+                <div class="especialidadeItem">
+                    
+                    <h2>Obstetra</h2>
+                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
+            
+                </div>
+            </a>
+            <a onclick="pegarItem(this)">
+                <div class="especialidadeItem">
+                    
+                    <h2>Esportivo</h2>
+                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
+            
+                </div >
+            </a>
+            <a onclick="pegarItem(this)">
+                <div class="especialidadeItem">
+                    
+                    <h2>Geriatra</h2>
+                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
+            
+                </div >
+            </a>
+            <a onclick="pegarItem(this)">
+                <div class="especialidadeItem">
+                    
+                    <h2>Ginecologista</h2>
+                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
+            
+                </div>
+            </a>
+            <a onclick="pegarItem(this)">
+                <div class="especialidadeItem">
+                    
+                    <h2>Pediatra</h2>
+                    <img src="image/icon-park-solid_baby-feet.svg" alt="">
+            
+                </div>
+            </a>
+
+        </div>
+        <div class="Escolha">
             <div >
                 <div class="boxDaBox">
-                    <div class="boxEscolha">
-                        <div>
-                            <h2>Primeiro Exame</h2>
-                        </div>
-                        <div>
-                            <h2>Retorno de Exame Antigo</h2>
-                        </div>
-                        <div>
-                            <h2>Encaminhamento de outro médico</h2>
-                        </div>
-                    </div>
-                    <div class="teteinput">
-                        <textarea name="textarea" rows="10" cols="50" placeholder="Detalhe aqui o motivo da sua consulta..."></textarea>
-                </div>
+                    
                 <div>
-                <button>Marcar Consulta</button>
+                <button onclick="filtroEspecialidade()">Filtrar</button>
             </div>
-                </div>
-            </div>
+        </div>
     </div>
-
+    </div>
+    </div>
 </div>
+
+<script src="js/index.js"></script>
+<script src="corBotao.js"></script>
+<script src="js/filtro.js"></script>
 </body>
 </html>

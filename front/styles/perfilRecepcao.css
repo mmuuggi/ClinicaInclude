@@ -1,0 +1,345 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+a{
+    text-decoration: none;
+    color: #1D3461;
+}
+body{
+    background-color: #1D3461;
+}
+
+
+.pefilPac{
+    display: flex;
+    justify-content: center;
+    color: #1D3461;
+    font-family: 'Trebuchet MS';
+}
+#perfil{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 80px;
+    width: 1200px;
+    border-radius: 20px;
+}
+.bloco{
+    display: flex;
+    width: 297px;
+    height: 297px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 6px;
+}
+.bloco img{
+    border-radius: 20px;
+}
+#hpacient{
+    top: 550px;
+}
+.pefilPac h1{
+    font-size: 30px;
+}
+
+
+.Datas div{
+    display: flex;
+    width: 700px;
+    height: 100px;
+    
+    box-shadow: 0px 0px 6px;
+    border-radius: 10px;
+    margin: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Datas a{
+    color: #1D3461;
+}
+.Datas a:hover{
+    transition: 300ms;
+    color: rgb(0, 0, 0);
+    width: 700px;
+    height: 100px;
+}
+#blocoAlign{
+    display: flex;
+    align-items: center ;
+}
+#ajustImg2{
+    width: 237px;
+    height: 50px;
+}
+#ajustImas{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+.divmeio{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+/* css da documento html perfilRecepicaoDesmascar*/
+.DatasDes{
+    display: flex;
+    width: 700px;
+    height: 680px;
+    box-shadow: 0px 0px 6px;
+    border-radius: 10px;
+    margin: 40px;
+    flex-direction: column;
+    align-items: center;
+}
+.dviData div{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 510px;
+    padding-left: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    
+}
+.DatasDes input{
+    margin: 20px;
+    width: 340px;
+    height: 40px;
+    border-radius: 15px;
+    background: #1D3461;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    font-family: 'Trebuchet MS';
+    color: #F6F7F8;
+    font-size: 20px;
+}
+#flexData{
+    display: flex;
+    align-items: center;
+}
+#flexData button{
+    
+    width: 58px;
+    height: 58px;
+    background-color: transparent;
+    border: none;
+}
+#h2Data{
+    display: flex;
+    justify-content: center;
+}
+
+/* css da documento html perfilRecepicaoMarcar*/
+.dviDatamarcar div{
+    margin-top: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 100px;
+    border-radius: 15px;
+    background: #F6F7F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+
+}
+
+/* css da documento html perfilRecepicaoCadastrar */
+.pefilPac{
+    display: flex;
+    justify-content: center;
+    color: #1D3461;
+    font-family: 'Trebuchet MS';
+}
+#perfil{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 80px;
+    height: auto;
+    width: 1220px;
+    height: 925px;
+    border-radius: 20px;
+}
+#bloco{
+    display: flex;
+    width: 193.696px;
+    height: 193.696px;
+    background-color: #F6F7F8;
+    border-radius: 20px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #F6F7F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    margin: 40px;
+    justify-content: center;
+}
+.hpacient{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+.hpacient button{
+    width: 300px;
+    height: 80px;
+    font-family: 'Trebuchet MS';
+    color: #F6F7F8;
+    font-size: 20px;
+    border-radius: 20px;
+    background: #1D3461;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: none;
+}
+#blocoAlign{
+    display: flex;
+    align-items: center ;
+    flex-direction: column-reverse;
+}
+.DatasCadastro {
+    display: flex;
+    flex-direction: column;
+}
+.DatasCadastro input{
+    margin-top: 18px;
+    width: 524.345px;
+    height: 39.326px;
+    border-radius: 20px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), #F6F7F8;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    font-family: 'Trebuchet MS';
+    color: #F6F7F8;
+    font-size: 20px;
+}
+.DatasCadastro h2{
+    margin-top: 9px;
+}
+/* css da documento html perfilRecepicaoEdicaomed02  */
+.Datasano button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #172A4E;
+    width: 145px;
+    height: 51px;
+    border-radius: 15px;
+    background: transparent;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: none;
+    outline: none;
+}
+.Datasano button.clicked{
+    background-color: #1D3461;
+    color: white;
+}
+.DiaMesAno h1{
+    text-align: center;
+}
+.DiaMesAno{
+    display: flex;
+    margin-top: 80px;
+}
+
+.DiaMesAno select{
+    margin-left: 30px;
+    color: #172A4E;
+    text-align: center;
+    font-size: 16px;
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: none;
+    outline: none;
+}
+.Butão{
+    display: flex;
+    justify-content: center;
+}
+
+.Butão button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 80px;
+    margin-top: 20px;
+    color: #FFF;
+    font-family: Trebuchet MS;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.9px;
+    border-radius: 20px;
+    background: #1D3461;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: none;
+    outline: none;
+}
+
+
+/* css da documento html perfilRecepicaoEdicaomed  */
+
+.Escolhamedico{
+    display: flex;
+    width: 600px;
+    flex-wrap: wrap;
+    color: white;
+    font-family: Trebuchet MS;
+    justify-content: center;
+}
+.Escolhamedico div{
+    margin-top: 30px;
+    margin-right: 40px;
+    width: 150px;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #1D3461;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 0px 4px 0px rgba(0, 0, 0, 0.25) inset;
+
+}
+.Escolhamedico img{
+    
+    width: 102px;
+    height: 102px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.Escolhamedico h2{
+    font-size: 15px;
+}
+.Escolhamedico h3{
+    font-size: 8px;
+}
+.Escolhamedico a{
+    color: white;
+}
+.centalizando{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#messageErro{
+    display: flex;
+    padding-top: 5vh;
+    justify-content: center;
+    color: red;
+}
+#popup{
+    display: none;
+}
+
+.t{
+    display: flex;
+    flex-direction: column;
+}

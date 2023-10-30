@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     carregarNome();
-    carregarHistoricoMedico();
+    carregarConsultasPacientes();
 });
 
 function stringParaData(dataString) {
@@ -9,29 +9,30 @@ function stringParaData(dataString) {
 }
 
 function removerHora(data) {
-    const novaData = new Date(data);
-    novaData.setHours(0, 0, 0, 0);
-    return novaData;
+const novaData = new Date(data);
+novaData.setHours(0, 0, 0, 0);
+return novaData;
 }
 
-function carregarHistoricoMedico() {
+function carregarConsultasPacientes() {
     const consultas = localStorage.getItem('minhasConsultas');
     const container = document.getElementById('Datas');
     let i = 0;
-    if (consultas){
+    if (consultas) {
         const dataAtual = new Date();
         const dataAtualSemHora = removerHora(dataAtual);
-        const consulta = JSON.parse(consultas);
+        
+        let consulta = JSON.parse(consultas);
         consulta.forEach(consulta => {
             let dataConsulta = stringParaData(consulta.data_consulta);
             let dataConsultaSemHora = removerHora(dataConsulta);
-            if (dataConsultaSemHora < dataAtualSemHora) {
+            if (dataConsultaSemHora >= dataAtualSemHora) {
                 const div = document.createElement('div');
                 let consultaId = consulta.id;
-                div.id = 'datapac';
+                div.id = 'datap';
                 div.classList.add(consultaId);
                 div.innerHTML = `
-                <a href='javascript:abrir(${consultaId})'>
+                <a onclick="abrir(${consultaId})">
                     <h2>${consulta.data_consulta}</h2>
                     <span>${consulta.especialidade}</span>
                     </a>
@@ -43,12 +44,10 @@ function carregarHistoricoMedico() {
         if (i === 0) {
             const div = document.createElement('div');
             div.innerHTML = `
-                <h2>Sem consultas antigas</h2>
+                <h2>Sem consultas!</h2>
             `;
             container.appendChild(div);
         }
-    }else {
-        console.log("2");
     }
 }
 
@@ -65,11 +64,16 @@ function abrir(idConsulta){
         const consulta = JSON.parse(consultas);
         const consultaEncontrada = consulta.find(consulta => consulta.id === idConsulta);
         if(consultaEncontrada){
+            localStorage.setItem('nameMedico1', consultaEncontrada.nome_medico);
+            localStorage.setItem('especialidadeMedico1', consultaEncontrada.especialidade);
+            localStorage.setItem('horaMedico1', consultaEncontrada.hora_consulta);
+            localStorage.setItem('dataMedico1', consultaEncontrada.data_consulta);
+            localStorage.setItem('idMedico1', consultaEncontrada.id);
+            localStorage.setItem('emailMedico1', consultaEncontrada.email_medico);
             const div = document.createElement('div');
             div.id = 'popup';
             div.classList.add('examepopup');
-            div.innerHTML = `
-            <div id='headerHistoricoPop'>
+            div.innerHTML = `           <div id='headerHistoricoPop'>
             <div>
                 <a href="javascript:fechar()">
                     <img src="image/BackButton.svg" alt="">
@@ -113,17 +117,11 @@ function abrir(idConsulta){
         <img src="image/image 2.svg" alt="">
     </div>
     </div>
-    <div>
-        <div>
-            <a href='HistoricopacienteMedico.html' ><button>Ver histórico completo</button></a>
-        </div>
-        <div>
-            <a href='NotaPessoalMedico.html'><button>Adicionar nota pessoal</button></a>
-        </div>
     </div>
+    <div id='botoesHistorico'>
+    <a id='buttonHistorico' onclick="cancelarConsulta()">Cancelar consulta</a>
     </div>`
         container.appendChild(div);
-        localStorage.setItem('idConsulta', idConsulta);
             document.getElementById('dataPopUPTitle').textContent = consultaEncontrada.data_consulta;
             document.getElementById('especialidadePopUPTitle').textContent = consultaEncontrada.especialidade;
             document.getElementById('nomePacientePopUP').textContent = consultaEncontrada.nome_paciente;
@@ -143,6 +141,31 @@ function abrir(idConsulta){
     }
     
 }
+
 function fechar(){
     document.getElementById('popup').style.display= 'none';
+}
+
+function cancelarConsulta(){
+
+    const data = {
+        id: localStorage.getItem('idMedico1'),
+        email: localStorage.getItem('emailMedico1'),
+        nome:localStorage.getItem('nameMedico1'),
+        especialidade: localStorage.getItem('especialidadeMedico1'),
+        data_consulta: localStorage.getItem('dataMedico1'),
+        hora_consulta: localStorage.getItem('horaMedico1')
+    };
+
+    fetch('https://includeapi-production.up.railway.app/desmarcar', {
+        method: 'DELETE',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    }).then(response=>{
+        if(response.status == 200){
+            window.location.href = 'perfilPaciente.html';
+        }
+    })
 }

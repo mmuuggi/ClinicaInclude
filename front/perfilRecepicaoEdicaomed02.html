@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/perfilRecepcao.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <section class="pefilPac">
+        <div id="perfil" >
+            <div id="ajustImas">
+                <a href="perfilRecepcaoPesquisarMedico.html"><img src="image/BackButton.svg" alt=""></a>
+            </div>
+            <div id="blocoAlign">
+            <h1 >Selecione o Intervalo de Tempo:</h1>
+        </div>
+        <div class="DiaMesAno">
+            <div>
+            <h1>Ano:</h1>
+            <div class="Datasano">
+                <button class="meusBotoes" data-ano="2023">2023</button>
+                <button class="meusBotoes" data-ano="2024">2024</button>
+            </div >
+        </div>
+            <div>
+            <h1>Mês:</h1>
+        
+            <select id="mes" name="mes"  placeholder="Escolha sua data:">
+                <option value="" disabled selected>Escolha sua data:</option>
+                <option value="01">Janeiro</option>
+                <option value="02">Fevereiro</option>
+                <option value="03">Março</option>
+                <option value="04">Abril</option>
+                <option value="05">Maio</option>
+                <option value="06">Junho</option>
+                <option value="07">Julho</option>
+                <option value="08">Agosto</option>
+                <option value="09">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+              </select>
+            </div>
+            <div>
+              <h1>Dia:</h1>
+              <select id="dia" name="dia">
+                <option value="" disabled selected>Escolha sua data:</option>
+              </select>
+            </div>
+            <div>
+            <h1>Hora:</h1>
+
+            <select id="hora" name="hora">
+                <option value="" disabled selected>Escolha sua data:</option>
+            </select>
+        </div>
+        
+            </div>
+            <div class="Butão">
+                <button onclick="addHorarioMedico()">Alterar</button>
+            </div>
+            <div>
+                <p id="messageErro"></p>
+            </div>
+            <div id="popup" class="popup">
+                <h2>Médico cadastrado com sucesso!!!</h2>
+                <a href="perfilRecepcao.html"><button id="closePopup" >Voltar ao Início</button></a>
+            </div>
+        </div>
+    </section>
+  <script src="Horas.js"></script>
+  <script src="numeros.js"></script>
+  <script src="js/horaMedico.js"></script>
+</body>
+</html>

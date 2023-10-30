@@ -23,7 +23,7 @@
                 <form id="formajust" action="">
                     <div class="inputlog">
                         <label for="">Nome Completo:</label>
-                        <input  type="text" >
+                        <input id="name" type="text" >
                     </div>
                     <div class="inputlog">
                         <label for="">E-mail:</label>
@@ -44,8 +44,11 @@
                         <label>é um servidor?! Utilize sua chave de admin!!!</label>
                         <input id="idServidor" type="text" >
                     </div>
+                    <div>
+                        <p id="messageErro"></p>
+                    </div>
                     <div id="loginajust">
-                        <button id="entrar" type="submit">Cadastrar</button>
+                        <button id="entrar" type="submit" onclick="cadastro(1)">Cadastrar</button>
                         <small id="textForm"></small>
                     </div>
                     

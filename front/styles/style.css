@@ -103,6 +103,7 @@ body{
     letter-spacing: -0.03em;
     text-align: left;
     color: #1D3461;
+
 }
 
 .pacientes-container{
@@ -113,6 +114,12 @@ body{
     margin-top: 30px;
     
 }
+#janelaCadastro{
+    position: absolute;
+    margin-left: 35vh;
+    display: none;
+    margin-top: 50vh;
+}
 .pacientes-diario{
     width: 300px;
     height: 180px;
@@ -120,9 +127,6 @@ body{
     box-shadow: 0px 4px 4px 0px #00000040;
     box-shadow: 0px 4px 4px 0px #00000040 inset;
     cursor:pointer;
-}
-.pacientes-container:hover{
-    
 }
 
 #checkup{
@@ -237,4 +241,168 @@ body{
     text-align: left;
 }
 
-    
+#popup{
+    display: none;
+} 
+.PopupConfirmar{
+    margin-left: -25vh;
+    margin-top: 85px;
+    position: absolute;
+    color: #1D3461;
+    width: 517px;
+    height: 240px;
+    border-radius: 20px;
+    background: #F6F7F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.PopupConfirmar h3{
+    color: white;
+    width: 211px;
+    height: 37px;
+    flex-shrink: 0;
+    text-align: center;
+    border-radius: 10px;
+}
+.PopupConfirmar h2{
+    margin-top: 15px;
+    color:#1D3461;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.75px;
+}
+.PopupConfirmar p{
+    margin-left: 0px;
+    color: #1D3461;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.45px;    
+}
+.PopupConfirmar input{
+    margin-left: 40px;
+    width: 432px;
+    height: 25px;
+    border-radius: 20px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #F6F7F8;
+    border: none;
+    outline: none;
+}
+.PopupConfirmar button{
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+    color: #1D3461;
+    width: 150px;
+    height: 38px;   
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+     
+}
+
+#container-pacientes a{
+    text-decoration: none;
+}
+#container-pop h2, h1{
+    font-size: 40px;
+    color: #1D3461;
+    font-family: 'Trebuchet MS';
+}
+
+#container-pop span{
+    font-size: 20px;
+    color: #1D3461;
+    font-family: 'Trebuchet MS';
+}
+.examepopup {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 1058px;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%; /* Centralizar horizontalmente */
+    top: 50%; /* Centralizar verticalmente */
+    transform: translate(-50%, -50%);
+    height: 867px;
+    box-shadow: 0px 0px 20px 2px black, 0em 0px 20em 20px black;
+}
+
+.examepopup div {
+    display: flex;
+    flex-direction: column;
+}
+
+.examepopup p {
+    padding: 20px;
+}
+#especialidadePopUPTitle{
+    padding-top: 10vh;
+}
+#teste12{
+    display: flex;
+    flex-direction: row;
+    padding-top: 7vh;
+    gap: 10vw;
+}
+#testeimg{
+    display: flex;
+    align-items: center;
+    font-family:Trebuchet MS;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 58px;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #1D3461;
+    border-radius: 3vh;
+    height: 40vh;
+    width: 20vw;
+}
+#testeimg p{
+    display: flex;
+    justify-content: center;
+    padding-top: 3vh;
+}
+#testeimg img{
+    width: 15vw;
+}
+#buttonHistorico{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 300px;
+    border-radius: 20px;
+    background-color: #1D3461;
+    font-family: 'Trebuchet MS';
+    font-size: 25px;
+    color: white;
+}
+#headerHistoricoPop{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    width: 100%;
+    gap: 40vh;
+}
+#especialidadeButton{
+    margin-top: 4vh;
+    margin-left: 10vh;
+}
+#Afastarbotao{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}

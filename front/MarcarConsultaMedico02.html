@@ -42,42 +42,12 @@
         <div>
             
         </div>
-            <h1>Escolha a especialidade:</h1>
+            <h1>Escolha a data:</h1>
             <div class="Escolhamedico02">
                 <div class="horaData" >
                     <img src="image/image 1.svg" alt="">
-                    <h2>Dr. Exemplo Costa</h2>
-                    <div class="boxData">
-                        <div>
-                            <h2>12.</h2>
-                            <h3>Set</h3>
-                            <span>Terç.</span>
-                        </div>
-                        <div>
-                            <h2>12.</h2>
-                            <h3>Set</h3>
-                            <span>Terç.</span>
-                        </div>
-                        <div>
-                            <h2>12.</h2>
-                            <h3>Set</h3>
-                            <span>Terç.</span>
-                        </div>
-                        <div>
-                            <h2>12.</h2>
-                            <h3>Set</h3>
-                            <span>Terç.</span>
-                        </div>
-                        <div>
-                            <h2>12.</h2>
-                            <h3>Set</h3>
-                            <span>Terç.</span>
-                        </div>
-                        <div>
-                            <h2>12.</h2>
-                            <h3>Set</h3>
-                            <span>Terç.</span>
-                        </div>
+                    <h2 id="nameMedicoEsp"></h2>
+                    <div id="containerDataHora" class="boxData">
                     </div>
                 </div>
                 
@@ -86,27 +56,20 @@
             <div class="Escolha">
             <div >
                 <div class="boxDaBox">
-                    <div class="boxEscolha">
-                        <div>
-                            <h2>Primeiro Exame</h2>
-                        </div>
-                        <div>
-                            <h2>Retorno de Exame Antigo</h2>
-                        </div>
-                        <div>
-                            <h2>Encaminhamento de outro médico</h2>
-                        </div>
-                    </div>
                     <div class="teteinput">
-                        <textarea name="textarea" rows="10" cols="50" placeholder="Detalhe aqui o motivo da sua consulta..."></textarea>
+                        <textarea id = "descricaoPaciente" name="textarea" rows="10" cols="50" placeholder="Detalhe aqui o motivo da sua consulta..."></textarea>
                 </div>
                 <div>
-                <button>Marcar Consulta</button>
+                <button onclick="marcarConsulta()">Marcar Consulta</button>
             </div>
                 </div>
             </div>
     </div>
 
 </div>
+<script src="js/filtro.js"></script>
+<script src="js/carregarMedico.js"></script>
+<script src="js/botaoo.js"></script>
+<script src="js/marcarConsulta.js"></script>
 </body>
 </html>

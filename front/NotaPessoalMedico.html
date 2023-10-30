@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/nota.css">
+    <title>Perfil paciente</title>
+</head>
+<body id="cor">
+    <header class="Headermarca">
+        
+        <div class="openmoji_person">
+            <div>
+            <a href="perfilDoutor.html"><img id="LogoInclude" src="image/BackButton.svg" alt=""></a>
+        </div>
+            <div>
+        <img id="Openmoji" src="image/openmoji_person.svg" alt="">
+    </div>
+   <div> <h2 id="name"></h2></div>
+    </div>
+    </header>
+    <section class="pefilPac">
+        <div >
+            <p id="escreva">Escreva sua nota pessoal:</p>
+            <div id="hpacient">
+                <input id="NotaPessoal" type="text" placeholder="Digite aqui...">
+            </div>
+            <p id="msgErro"></p>
+        </div>  
+    </section>
+    <div id="botoesNota">
+        <div>
+            <button onclick="adicionarNotaPessoal()">Confirmar</button>
+        </div>
+        <div>
+            <button>
+                Cancelar
+            </button>
+        </div>
+    </div>
+    <script src="js/teste.js"></script>
+    <script src="js/atualizar.js"></script>
+    
+</body>
+
+</html>

@@ -22,6 +22,7 @@ body{
     height: 42px;
 }
 #ExitButton{
+    margin-left: 35px;
     margin-right: 15px;
     width: 48.91px;
     height: 48.91px;
@@ -86,19 +87,7 @@ body{
     flex-wrap: wrap;
 }
 
-.Filtrar div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 150px;
-    height: 50px;
-    border-radius: 15px;
-    border: 2px solid #F6F7F8;
-    background: #F6F7F8;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    margin: 20px;
-    margin-left: 0px;
-}
+
 
 .Filtrar h2 {
     color: #00000066;
@@ -112,6 +101,37 @@ body{
 }
 .Filtrar a{
     text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+    height: 50px;
+    border-radius: 15px;
+    border: 2px solid #F6F7F8;
+    background: #F6F7F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    margin: 20px;
+    margin-left: 0px;
+}
+
+.Filtrar .datacor{
+    background:#1D3461;
+    
+}
+.Filtrar .datacor h2{
+    color: white;
+}
+.Filtrar .especialidadecor {
+    background:#1D3461;
+}
+.Filtrar .especialidadecor h2{
+    color: white;
+}
+.Filtrar .medicocor{
+    background:#1D3461;
+}
+.Filtrar .medicocor h2{
+    color: white;
 }
 .EscolhaData {
     width: 510px;
@@ -126,7 +146,7 @@ body{
     width: 720px;
     flex-wrap: wrap;
 }
-.EscolhaEspecialidade div{
+.EscolhaEspecialidade .especialidadeItem{
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -137,6 +157,12 @@ body{
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
 }
+.EscolhaEspecialidade .especialidadeItem.clicked {
+    background-color: #1D3461;
+}
+.EscolhaEspecialidade .especialidadeItem.clicked h2{
+    color: white;
+  }
 .EscolhaEspecialidade h2{
     color: #1D3461;
     font-family: 'Trebuchet MS';
@@ -192,6 +218,7 @@ body{
 }
 .Escolhamedico{
     display: flex;
+
     width: 600px;
     flex-wrap: wrap;
     color: white;
@@ -333,11 +360,8 @@ body{
     letter-spacing: -0.72px;
 }
 .Escolha{
-    display: flex;
-    flex-direction: column;
-    margin-top: 300px;
-    align-items: flex-start;
-    height: 680px;
+    margin-top: 80px;
+ 
 }
 .boxDaBox{
     display: flex;
@@ -378,6 +402,7 @@ body{
 }
 .teteinput{
     display: flex;
+    padding-top: 50vh;
     margin-top: 20px;
 }
 .teteinput textarea{
@@ -401,11 +426,11 @@ textarea::placeholder {
 }
 .boxDaBox button{
     display: flex;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
     width: 300px;
     height: 80px;
-    margin-top: 20px;
     color: #FFF;
     font-family: Trebuchet MS;
     font-size: 30px;
@@ -418,4 +443,123 @@ textarea::placeholder {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     border: none;
     outline: none;
+}
+.Datasano button{
+    margin-bottom: 30px;
+    margin-top: 20px;
+    color: #172A4E;
+    width: 145px;
+    height: 51px;
+    border-radius: 15px;
+    background: transparent;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: none;
+    outline: none;
+}
+.DiaMesAno{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.DiaMesAno h1{
+    color: #172A4E;
+    font-family: Trebuchet MS;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.72px;
+}
+.Datasano button{
+    color: #1D3461;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    background-color: white;
+}
+.Datasano button.clicked{
+    background-color: #1D3461;
+    color: white;
+}
+.DiaMesAno select{
+    margin-bottom: 50px;
+    color: #172A4E;
+    text-align: center;
+    font-size: 16px;
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    border: none;
+    outline: none;
+}
+#LadoAno{
+    display: flex;
+}
+#retorno{
+    margin-top: 40px;
+}
+/*escolher a especialidade*/
+.EspEscolher{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.EspEscolher h1{
+    margin-top: 20px;
+    color: #172A4E;
+    font-family: Trebuchet MS;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.72px;   
+}
+/*filtro por medico*/
+#flexData{
+    display: flex;
+    align-items: center;
+}
+#flexData button{
+    
+    width: 58px;
+    height: 58px;
+    background-color: transparent;
+    border: none;
+}
+#flexData input{
+    margin: 20px;
+    width: 340px;
+    height: 40px;
+    border-radius: 15px;
+    background: #1D3461;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    font-family: 'Trebuchet MS';
+    color: #F6F7F8;
+    font-size: 20px;
+}
+.pesquisa{
+    display: flex;
+    width: 483px;
+    height: 433px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #F6F7F8;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    flex-direction: column;
+    align-items: center;
+}
+
+a.selecionado div{
+    background-color: #1D3461;
+}
+#HoraC{
+    color: #00000066;
+
 }
