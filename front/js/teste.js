@@ -154,11 +154,17 @@ function cadastroEspecialidade(element){
 }
 
 function pesquisarMedico(a){
+    let aaa;
+    if(a == 'Paciente1' || a == 'Paciente'){
+        aaa = 'Paciente'
+    }else{
+        aaa = 'Médico'
+    }
     let email = document.getElementById('email').value;
     let nomeMedico = document.getElementById('nameMedico');
     const data = {
         email: email,
-        role: a
+        role: aaa
     };
     fetch('https://includeapi-production.up.railway.app/pesquisar', {
         method: 'POST',
@@ -175,7 +181,7 @@ function pesquisarMedico(a){
                 let especialidade = data.especialidade;
                 let message = data.message;
                 let email = data.email;
-                if(role == 'Paciente'){
+                if(a == 'Paciente'){
                     localStorage.setItem('nomePaciente', name);
                     localStorage.setItem('emailPaciente', email);
                     localStorage.setItem('rolePaciente', role);
@@ -184,6 +190,16 @@ function pesquisarMedico(a){
                     document.getElementById('MsgErro').textContent = '';
                     nomeMedico.addEventListener('click', function(){
                         window.location.href = 'cancelarconsultapaciente1.html';
+                    })
+                }else if(a == 'Paciente1'){
+                    localStorage.setItem('nomePaciente', name);
+                    localStorage.setItem('emailPaciente', email);
+                    localStorage.setItem('rolePaciente', role);
+                    localStorage.setItem('especialidadePaciente', especialidade);
+                    nomeMedico.textContent = name;
+                    document.getElementById('MsgErro').textContent = '';
+                    nomeMedico.addEventListener('click', function(){
+                        window.location.href = 'MarcarConsultaR.html';
                     })
                 }else{
                 if(especialidade == null){
@@ -214,7 +230,7 @@ function pesquisarMedico(a){
                 event.preventDefault();
             })
         } else {
-            if(a == 'Paciente'){
+            if(a == 'Paciente' || a == 'Paciente1'){
                 nomeMedico.textContent = 'Paciente não cadastrado';
             }else{
                 nomeMedico.textContent = 'Médico não encontrado.';

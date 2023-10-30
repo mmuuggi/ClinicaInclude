@@ -1,3 +1,4 @@
+let especialidade = '';
 var anoSelecionado = '';
 var botoesAno = document.querySelectorAll('.Datasano button');
 
@@ -111,7 +112,7 @@ function filtrar(){
                                 let email1 = a.email;
                                 div.innerHTML = `
                                 <a onclick="abrirTeste('${email1}')">
-                                <img src="image/image 1.svg" alt="">
+                                <img src="image/Pfp Médico.svg" alt="">
                                     <h2>${a.nome}</h2>
                                     <p>${a.especialidade}</p>
                                 </a>`;
@@ -197,7 +198,7 @@ function filtroMedico(){
                     let email1 = medico1.email;
                     div.innerHTML = `
                     <a data-id="${medico1.email}" onclick="abrirTeste('${email1}')">
-                    <img src="image/image 1.svg" alt="">
+                    <img src="image/Pfp Médico.svg" alt="">
                         <h2>${medico1.nome}</h2>
                         <p>${medico1.especialidade}</p>
                     </a>`;
@@ -250,16 +251,19 @@ function filtroEspecialidade(){
                 return response.json();
             }else {
                 let container = document.getElementById('medicoAchados-Container');
+                while (container.firstChild) {
+                    container.removeChild(container.firstChild);
+                }
                 if(container.children.length == 0){
                     const div = document.createElement('div');
                     div.classList.add('naoAdd');
                     div.innerHTML = `
                     <a class="naoAdd">
-                        <h2 id='textNotADD'>Escolha uma especialidade</h2>
+                        <h2 id='textNotADD'>Especialidade não disponível</h2>
                     </a>`
                     container.appendChild(div);
                 }else if(container.children.length == 1){
-                    document.getElementById('textNotADD').textContent = 'Escolha uma especialidade';
+                    document.getElementById('textNotADD').textContent = 'Especialidade não disponível';
                 }
             }
         })
@@ -279,7 +283,7 @@ function filtroEspecialidade(){
                     let email1 = medico1.email;
                     div.innerHTML = `
                     <a data-id="${medico1.email}" onclick="abrirTeste('${email1}')">
-                    <img src="image/image 1.svg" alt="">
+                    <img src="image/Pfp Médico.svg" alt="">
                         <h2>${medico1.nome}</h2>
                         <p>${medico1.especialidade}</p>
                     </a>`;
@@ -301,7 +305,7 @@ function filtroEspecialidade(){
             div.classList.add('naoAdd');
                 div.innerHTML = `
                 <a class="naoAdd">
-                    <h2 id='textNotADD'>Insira um nome</h2>
+                    <h2 id='textNotADD'>Escolha uma especialidade</h2>
                 </a>`
             container.appendChild(div);
         }else if(container.children.length == 1){

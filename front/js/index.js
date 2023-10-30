@@ -93,10 +93,15 @@ function cadastro(a){
     })
     .then(response =>{
         if(response.status == 201){
-            localStorage.setItem('name', data.name);
+            
+        if(a == 1){
+                localStorage.setItem('name', data.name);
             localStorage.setItem('role', data.role);
             localStorage.setItem('especialidade', data.especialidade);
             window.location.href = 'homePageLogada.html';
+        }else{
+            window.location.href = 'perfilRecepcao.html'
+        }
         }else{
             return response.json()
         }
