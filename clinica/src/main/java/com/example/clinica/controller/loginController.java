@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.Objects;
 
 import static com.example.clinica.validators.emailValidator.isValidEmail;
@@ -19,7 +18,7 @@ import static com.example.clinica.validators.emailValidator.isValidEmail;
 public class loginController{
     @Autowired
     private UsersRepository repository;
-    @CrossOrigin(origins = {"http://127.0.0.1:5500", "http://127.0.0.1:5501"}, allowedHeaders = "Content-Type")
+    @CrossOrigin(origins = "*", allowedHeaders = "Content-Type")
     @PostMapping
     public ResponseEntity<ApiResponse> login(@RequestBody UsersRequestDTO data) {
         if(isValidEmail(data.email())){
@@ -29,7 +28,19 @@ public class loginController{
                 return new ResponseEntity<>(loginDTO, HttpStatus.NOT_FOUND);
             }else{
                 if (Objects.equals(user.getPassword(), data.password())){
-                    ApiResponse loginDTO = new ApiResponse(data.email(), user.getName(), user.getRole());
+                    ApiResponse loginDTO;
+                    switch (user.getRole()){
+                        case "Paciente", "Recepcionista":
+                            loginDTO = new ApiResponse(data.email(), user.getName(), user.getRole());
+                            break;
+                        case "Médico":
+                            loginDTO = new ApiResponse(data.email(), user.getName(), user.getRole(), user.getEspecialidade());
+                            break;
+                        default:
+                            loginDTO = new ApiResponse("Error");
+                            break;
+
+                    }
                     return new ResponseEntity<>(loginDTO, HttpStatus.OK);
                 }else{
                     ApiResponse loginDTO = new ApiResponse("Senha inválida");

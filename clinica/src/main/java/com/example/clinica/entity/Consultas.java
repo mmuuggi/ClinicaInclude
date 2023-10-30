@@ -24,7 +24,7 @@ public class Consultas {
     private String especialidade;
     private String descricao_paciente;
     private String descricao_medico;
-    private String email_medico;
+    private String medicoEmail;
 
     public Consultas(ConsultasRequestDTO consulta){
         this.email = consulta.email();
@@ -35,7 +35,10 @@ public class Consultas {
         this.especialidade = consulta.especialidade();
         this.descricao_paciente = consulta.descricao_paciente();
         this.descricao_medico = consulta.descricao_medico();
-        this.email_medico = consulta.email_medico();
+        this.medicoEmail = consulta.medicoEmail();
     }
 
+    public void setDescricao_medico(String descricao_medico) {
+        this.descricao_medico = descricao_medico;
+    }
 }
