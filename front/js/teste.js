@@ -434,7 +434,7 @@ function adicionarNotaPessoal(){
             descricao_medico: document.getElementById('NotaPessoal').value
         };
         
-        fetch('http://localhost:3000/descricao', {
+        fetch('https://includeapi-production.up.railway.app/descricao', {
             method: 'PUT',
             headers: {
             'Content-Type': 'application/json'

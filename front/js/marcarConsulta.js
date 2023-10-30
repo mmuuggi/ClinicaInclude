@@ -25,7 +25,7 @@ function marcarConsulta(role){
         descricao_paciente: descricao,
         medicoEmail: emailM
     };
-    fetch('http://localhost:3000/marcarconsulta', {
+    fetch('https://includeapi-production.up.railway.app/marcarconsulta', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
