@@ -1,7 +1,7 @@
 function marcarConsulta(role){
     let email;
     let nome_paciente;
-    if(role == 'Recepcionista'){
+    if(role == 'Paciente'){
         email = localStorage.getItem("email");
         nome_paciente = localStorage.getItem('name');
     }else{
