@@ -1,6 +1,7 @@
 package com.example.clinica.services;
 
-import com.example.clinica.entity.Consultas;
+import com.example.clinica.entity.DiasMedicos;
+
 import lombok.Getter;
 
 import java.util.List;
@@ -13,6 +14,12 @@ public class ApiResponse {
     private String message;
     private String name;
     private String especialidade;
+    private List<DiasMedicos> medicos;
+
+    public ApiResponse(List<DiasMedicos> medicos){
+        this.medicos = medicos;
+    }
+
 
     public ApiResponse(String email, String name, String role) {
         this.email = email;

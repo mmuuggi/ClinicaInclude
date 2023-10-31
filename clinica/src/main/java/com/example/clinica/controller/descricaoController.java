@@ -1,6 +1,5 @@
 package com.example.clinica.controller;
 
-import com.example.clinica.entity.Consultas;
 import com.example.clinica.repository.ConsultasRepository;
 import com.example.clinica.repository.ConsultasResponseDTO;
 import com.example.clinica.services.ApiResponse;
@@ -23,7 +22,7 @@ public class descricaoController {
     @CrossOrigin(origins = "*", allowedHeaders = "Content-Type")
     @PutMapping()
     public ResponseEntity<ApiResponse> atualizarDescricao(@RequestBody ConsultasResponseDTO data){
-        Consultas consultas = notaMedico.atualizarNota(data.id(), data.descricao_medico());
+        notaMedico.atualizarNota(data.id(), data.descricao_medico());
         ApiResponse apiResponse = new ApiResponse("OK");
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }

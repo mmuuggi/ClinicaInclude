@@ -7,8 +7,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Entity(name="horariomedico")
 @Table(name=" horariomedico")
 @Getter
@@ -20,14 +18,14 @@ public class DiasMedicos{
     private Long id;
     private String email;
     private String nome;
-    private String data_consulta;
+    private String dataConsulta;
     private String hora_consulta;
     private String especialidade;
 
     public DiasMedicos(DiasMedicosRequestDTO dias){
         this.email = dias.email();
         this.nome = dias.nome();
-        this.data_consulta = dias.data_consulta();
+        this.dataConsulta = dias.dataConsulta();
         this.hora_consulta = dias.hora_consulta();
         this.especialidade = dias.especialidade();
     }

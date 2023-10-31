@@ -22,15 +22,27 @@
                 
                 
             <div class="DatasCadastro" >
-               <h2>Nome Completo:</h2>
-               <input id="name" type="text">
-               <h2>Email:</h2>
-               <input id="email" type="email">
-               <h2>CPF:</h2>
-               <input id="cpf" type="text">
-               <h2>Senha</h2>
-               <input id="password" type="password">
-
+                <form id="formajust" action="">
+                    <div class="inputlog">
+                        <h2>Nome Completo:</h2>
+                        <input id="name" type="text" >
+                    </div>
+                    <div class="inputlog">
+                        <h2 for="">E-mail:</h2>
+                        <input id="email" type="email" >
+                        <small id="textEmail"></small>
+                    </div>
+                    <div class="inputlog">
+                        <h2 for="">CPF:</h2>
+                        <input id="cpf"type="text" oninput="formatarCPF(this);"autocomplete="off" maxlength="14">
+                        <small id="textCpf"></small>
+                    </div>
+                    <div class="inputlog" >
+                        <h2 for="">Senha:</h2>
+                        <input id="password" type="password" >
+                        <small id="textPassword"></small>
+                    </div>
+                </form>
             </div>
             
                 
@@ -45,6 +57,7 @@
         
    
     </section>
+    <script src="js/Verificacao.js"></script>
   <script src="js/index.js"></script>
 </body>
 </html>

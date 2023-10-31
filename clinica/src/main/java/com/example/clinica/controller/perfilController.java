@@ -1,15 +1,11 @@
 package com.example.clinica.controller;
 
 import com.example.clinica.entity.Consultas;
-import com.example.clinica.entity.Users;
 import com.example.clinica.repository.ConsultasRepository;
-import com.example.clinica.repository.ConsultasRequestDTO;
-import com.example.clinica.repository.UsersRepository;
 import com.example.clinica.repository.UsersRequestDTO;
 import com.example.clinica.services.ConsultasComparator;
 import com.example.clinica.services.PerfilResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +14,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/perfil")
 public class perfilController {
-    @Autowired
-    private UsersRepository repository;
+
     @Autowired
     private ConsultasRepository consultasRepository;
 

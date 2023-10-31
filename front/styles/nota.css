@@ -147,11 +147,23 @@ body{
 }
 .openmoji_person{
     display: flex;
+    flex-direction: row;
+    gap: 5vh;
 }
 .openmoji_person a{
     display: flex;
     align-items: center;
     
+}
+.openmoji_person h2{
+    margin-top: 5vh;
+    font-family: Trebuchet MS;
+font-size: 30px;
+font-weight: 700;
+line-height: 35px;
+letter-spacing: -0.03em;
+text-align: left;
+
 }
 footer{
     display: flex;
@@ -187,6 +199,7 @@ footer{
 #NotaPessoal{
     width: 100vh;
     height: 50vh;
+    background-color: #1D3461;
 }
 #msgErro{
     display: none;
@@ -194,4 +207,30 @@ footer{
 #botoesNota{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10vh;
+    margin-top: 10vh;
+}
+#botoesNota button{
+    width: 400px;
+    height: 100px;
+    top: 724px;
+    left: 277px;
+    font-family: Trebuchet MS;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 46px;
+    letter-spacing: -0.03em;
+    text-align: center;
+    color: #1D3461;    
+}
+#escreva{
+    font-family: Trebuchet MS;
+font-size: 20px;
+font-weight: 700;
+line-height: 23px;
+letter-spacing: -0.03em;
+text-align: center;
+
 }

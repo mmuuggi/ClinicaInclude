@@ -1,7 +1,4 @@
-document.addEventListener('DOMContentLoaded', function (){
-   console.log(1)
-});
-
+let especialidade = '';
 var anoSelecionado = '';
 var botoesAno = document.querySelectorAll('.Datasano button');
 
@@ -15,7 +12,7 @@ botoesAno.forEach(function(botao) {
 function carregarMedicos(){
     const data = {
         dataConsulta: dataAtual
-    };fetch('http://localhost:3000/teste', {
+    };fetch('https://includeapi-production.up.railway.app/teste', {
         method: 'GET',
         body: JSON.stringify(data),
         headers: {
@@ -75,7 +72,7 @@ function filtrar(){
                 const data = {
                     dataConsulta: dataAtual
                 };
-                fetch('http://localhost:3000/filtro', {
+                fetch('https://includeapi-production.up.railway.app/filtro', {
                         method: 'POST',
                         body: JSON.stringify(data),
                         headers: {
@@ -101,11 +98,11 @@ function filtrar(){
                         }
                     })
                     .then(data => {
-                        let naoSei = data.diasMedicos;
+                       
+                        let naoSei = data.medicos;
                         let container = document.getElementById('containerMedico');
                         localStorage.setItem('T', JSON.stringify(naoSei));
-
-                        if(naoSei){
+                        if(naoSei.length > 0){
                             let ab = JSON.parse(localStorage.getItem('T'));
                             while (container.firstChild) {
                                 container.removeChild(container.firstChild);
@@ -115,25 +112,28 @@ function filtrar(){
                                 let email1 = a.email;
                                 div.innerHTML = `
                                 <a onclick="abrirTeste('${email1}')">
-                                <img src="image/image 1.svg" alt="">
+                                <img src="image/Pfp Médico.svg" alt="">
                                     <h2>${a.nome}</h2>
                                     <p>${a.especialidade}</p>
                                 </a>`;
                             
                                 container.appendChild(div);
                             })
+                        }else{
+                            while (container.firstChild) {
+                                container.removeChild(container.firstChild);
+                            }
+                            const div = document.createElement('div');
+                                div.innerHTML = `
+                                <a>
+                                    <h2>Nada encontrado</h2>
+                                </a>`;
+                            
+                                container.appendChild(div);
                         }
 
                     })
             }
-
-            
-            
-
-
-
-
-
 
 
         }else if(document.getElementById('escolhaTesteId')){
@@ -146,12 +146,12 @@ function pegarItem(elemento){
 }
 
 function filtroMedico(){
-    let email = document.getElementById('email').value;
-    if(email != ''){
+    let pesquisa = document.getElementById('pesquisa').value;
+    if(pesquisa != ''){
         const data = {
-            nome: email
+            nome: pesquisa
         };
-        fetch('http://localhost:3000/filtro', {
+        fetch('https://includeapi-production.up.railway.app/filtro', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
@@ -163,6 +163,9 @@ function filtroMedico(){
                 return response.json();
             }else{
                 let container = document.getElementById('medicoAchados-Container');
+                while (container.firstChild) {
+                    container.removeChild(container.firstChild);
+                }
                 if(container.children.length == 0){
                     const div = document.createElement('div');
                     div.classList.add('naoAdd');
@@ -177,22 +180,25 @@ function filtroMedico(){
             }
         })
         .then(data =>{
-            localStorage.setItem('NomesMedicos', JSON.stringify(data.diasMedicos));
+            let medicos = data.medicos;
+            localStorage.setItem('NomesMedicos', JSON.stringify(data.medicos));
             let container = document.getElementById('medicoAchados-Container');
-            if(data.diasMedicos){
+            if(medicos){
+                while (container.firstChild) {
+                    container.removeChild(container.firstChild);
+                }
                 let medico = JSON.parse(localStorage.getItem('NomesMedicos'));
                 medico.forEach(medico1 =>{
-                    if (!container.querySelector(`[data-id="${medico1.id}"]`)) {
+                    if (!container.querySelector(`[data-id="${medico1.email}"]`)) {
                     if(container.querySelector('.naoAdd')){
-                        console.log(1);
                         let aa = container.querySelector('.naoAdd');
                         aa.remove();
                     }
                     const div = document.createElement('div');
                     let email1 = medico1.email;
                     div.innerHTML = `
-                    <a data-id="${medico1.id}" onclick="abrirTeste('${email1}')">
-                    <img src="image/image 1.svg" alt="">
+                    <a data-id="${medico1.email}" onclick="abrirTeste('${email1}')">
+                    <img src="image/Pfp Médico.svg" alt="">
                         <h2>${medico1.nome}</h2>
                         <p>${medico1.especialidade}</p>
                     </a>`;
@@ -203,10 +209,16 @@ function filtroMedico(){
                 }
 
                 ) 
+            }else{
+                console.log(medicos)
             }
         });
     }else{
+        
         let container = document.getElementById('medicoAchados-Container');
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
         if(container.children.length == 0){
             const div = document.createElement('div');
             div.classList.add('naoAdd');
@@ -227,7 +239,7 @@ function filtroEspecialidade(){
         const data = {
             especialidade: especialidade
         };
-        fetch('http://localhost:3000/filtro', {
+        fetch('https://includeapi-production.up.railway.app/filtro', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
@@ -239,50 +251,61 @@ function filtroEspecialidade(){
                 return response.json();
             }else {
                 let container = document.getElementById('medicoAchados-Container');
+                while (container.firstChild) {
+                    container.removeChild(container.firstChild);
+                }
                 if(container.children.length == 0){
                     const div = document.createElement('div');
                     div.classList.add('naoAdd');
                     div.innerHTML = `
                     <a class="naoAdd">
-                        <h2 id='textNotADD'>Escolha uma especialidade</h2>
+                        <h2 id='textNotADD'>Especialidade não disponível</h2>
                     </a>`
                     container.appendChild(div);
                 }else if(container.children.length == 1){
-                    document.getElementById('textNotADD').textContent = 'Escolha uma especialidade';
+                    document.getElementById('textNotADD').textContent = 'Especialidade não disponível';
                 }
             }
         })
         .then(data =>{
-            let medicos = data.diasMedicos;
+            let medicos = data.medicos;
             localStorage.setItem('NomesMedicos', JSON.stringify(medicos));
             let container = document.getElementById('medicoAchados-Container');
             if(medicos){
+                
                 let medico = JSON.parse(localStorage.getItem('NomesMedicos'));
                 while (container.firstChild) {
                     container.removeChild(container.firstChild);
                 }
                 medico.forEach(medico1 =>{
+                    if (!container.querySelector(`[data-id="${medico1.email}"]`)) {
                     const div = document.createElement('div');
                     let email1 = medico1.email;
                     div.innerHTML = `
-                    <a onclick="abrirTeste('${email1}')">
-                    <img src="image/image 1.svg" alt="">
+                    <a data-id="${medico1.email}" onclick="abrirTeste('${email1}')">
+                    <img src="image/Pfp Médico.svg" alt="">
                         <h2>${medico1.nome}</h2>
                         <p>${medico1.especialidade}</p>
                     </a>`;
                 
                     container.appendChild(div);
+                    }
                 }) 
+            }else{
+
             }
         });
     }else{
         let container = document.getElementById('medicoAchados-Container');
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
         if(container.children.length == 0){
             const div = document.createElement('div');
             div.classList.add('naoAdd');
                 div.innerHTML = `
                 <a class="naoAdd">
-                    <h2 id='textNotADD'>Insira um nome</h2>
+                    <h2 id='textNotADD'>Escolha uma especialidade</h2>
                 </a>`
             container.appendChild(div);
         }else if(container.children.length == 1){

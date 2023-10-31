@@ -217,6 +217,14 @@ body{
 .DatasCadastro h2{
     margin-top: 9px;
 }
+.inputlog {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputlog h2{
+    font-size: 20px;
+}
 /* css da documento html perfilRecepicaoEdicaomed02  */
 .Datasano button{
     margin-top: 20px;

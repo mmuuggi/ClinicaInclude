@@ -13,7 +13,7 @@ function carregarEspecialidade(){
     if(role == 'Médico'){
         let especialidadeMedico = document.getElementById('especialidade');
         if(especialidades == ''){
-            especialidadeMedico.textContent = "Especialidade: " + 'Nenhuma cadastrada';
+            especialidadeMedico.textContent = "Especialidade: Nenhuma";
         }else{
             document.getElementById('especialidadeButton').style.display = 'none';
             especialidadeMedico.textContent = "Especialidade: " + especialidades;
@@ -49,7 +49,7 @@ function consultas(){
     .then(data => {
         const consultas = data.consultas;
         localStorage.setItem('minhasConsultas', JSON.stringify(consultas));
-        if(localStorage.getItem('role') == 'Médico'){consultas
+        if(localStorage.getItem('role') == 'Médico'){
             carregarConsultasMedicos();
         }else{
             carregarConsultasPacientes();
@@ -154,14 +154,19 @@ function cadastroEspecialidade(element){
 }
 
 function pesquisarMedico(a){
-    console.log(1);
+    let aaa;
+    if(a == 'Paciente1' || a == 'Paciente'){
+        aaa = 'Paciente'
+    }else{
+        aaa = 'Médico'
+    }
     let email = document.getElementById('email').value;
     let nomeMedico = document.getElementById('nameMedico');
     const data = {
         email: email,
-        role: a
+        role: aaa
     };
-    fetch('http://localhost:3000/pesquisar', {
+    fetch('https://includeapi-production.up.railway.app/pesquisar', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -176,7 +181,7 @@ function pesquisarMedico(a){
                 let especialidade = data.especialidade;
                 let message = data.message;
                 let email = data.email;
-                if(role == 'Paciente'){
+                if(a == 'Paciente'){
                     localStorage.setItem('nomePaciente', name);
                     localStorage.setItem('emailPaciente', email);
                     localStorage.setItem('rolePaciente', role);
@@ -184,7 +189,17 @@ function pesquisarMedico(a){
                     nomeMedico.textContent = name;
                     document.getElementById('MsgErro').textContent = '';
                     nomeMedico.addEventListener('click', function(){
-                        window.location.href = 'perfilRecepicaoEdicaomed02.html';
+                        window.location.href = 'cancelarconsultapaciente1.html';
+                    })
+                }else if(a == 'Paciente1'){
+                    localStorage.setItem('nomePaciente', name);
+                    localStorage.setItem('emailPaciente', email);
+                    localStorage.setItem('rolePaciente', role);
+                    localStorage.setItem('especialidadePaciente', especialidade);
+                    nomeMedico.textContent = name;
+                    document.getElementById('MsgErro').textContent = '';
+                    nomeMedico.addEventListener('click', function(){
+                        window.location.href = 'MarcarConsultaR.html';
                     })
                 }else{
                 if(especialidade == null){
@@ -215,7 +230,7 @@ function pesquisarMedico(a){
                 event.preventDefault();
             })
         } else {
-            if(a == 'Paciente'){
+            if(a == 'Paciente' || a == 'Paciente1'){
                 nomeMedico.textContent = 'Paciente não cadastrado';
             }else{
                 nomeMedico.textContent = 'Médico não encontrado.';
@@ -234,7 +249,7 @@ function confirmarButton(){
             email: localStorage.getItem('email'),
             especialidade: document.getElementById('nomeEspecialidade').textContent
         }
-        fetch('http://localhost:3000/especialidade', {
+        fetch('https://includeapi-production.up.railway.app/especialidade', {
         method: 'PUT',
         body: JSON.stringify(data),
         headers: {
@@ -269,7 +284,6 @@ function fechar(){
 }
 
 function abrir(idConsulta){
-    console.log(1)
     const consultas = localStorage.getItem('minhasConsultas');
     const container = document.getElementById('container-pop');
     if(consultas){
@@ -277,11 +291,22 @@ function abrir(idConsulta){
         const consultaEncontrada = consulta.find(consulta => consulta.id === idConsulta);
         if(consultaEncontrada){
             const div = document.createElement('div');
+            if(consultaEncontrada.descricao_medico != null){
             div.id = 'popup1';
             div.classList.add('examepopup');
             div.innerHTML = `
-            <h1 id="especialidadePopUPTitle"></h1>
-            <h2 id="dataPopUPTitle"></h2>
+            <div id='headerHistoricoPop'>
+                <div>
+                    <a href="javascript:fecharPop()">
+                        <img src="image/BackButton.svg" alt="">
+                    </a>
+                </div>
+                <div>
+                    <h1 id="especialidadePopUPTitle"></h1>
+                    <h2 id="dataPopUPTitle"></h2>
+                </div>
+            </div>
+            <div id="teste12" >
             <div>
             <p>
                 <span>Nome do Paciente:</span>
@@ -311,12 +336,80 @@ function abrir(idConsulta){
                     <span>Descrição:</span>
                     <span id="descricaoMedicoPopUP"></span>
                 </p>
-                <a href='Historicopaciente.html'><button>Ver histórico completo</button></a>
-                <a href="javascript:fechar()">
-                    <img src="image/BackButton.svg" alt="">
-                </a>
+        </div>
+        <div id='testeimg' >
+        <div>
+        <p>Exame:</p>
+            <img src="image/image 2.svg" alt="">
+        </div>
+        </div>
+        </div>
+        <div id='botoesHistorico'>
+            <a id='buttonHistorico' href='HistoricopacienteMedico.html'>Ver histórico completo</a>
+            
         </div>`
+        }else{
+            div.id = 'popup1';
+            div.classList.add('examepopup');
+            div.innerHTML = `
+            <div id='headerHistoricoPop'>
+                <div>
+                    <a href="javascript:fecharPop()">
+                        <img src="image/BackButton.svg" alt="">
+                    </a>
+                </div>
+                <div>
+                    <h1 id="especialidadePopUPTitle"></h1>
+                    <h2 id="dataPopUPTitle"></h2>
+                </div>
+            </div>
+            <div id="teste12" >
+            <div>
+            <p>
+                <span>Nome do Paciente:</span>
+                <span id="nomePacientePopUP"></span>
+            </p>
+            <p>
+                <span>Nome do Médico:</span>
+                <span id="nomeMedicoPopUP"></span>
+            </p>
+            <p>
+                <span>Especialidade do Médico:</span>
+                <span id="especialidadePopUP"></span>
+            </p>
+            <p>
+                <span>Data da realização do exame:</span>
+                <span id="dataPopUP"></span>
+            </p>
+                <p>
+                    <span>Horário:</span>
+                    <span id="horarioPopUP"></span>
+                </p>
+                <p>
+                    <span>Descrição:</span>
+                    <span id="descricaoPacientePopUP"></span>
+                </p>
+                <p>
+                    <span>Descrição:</span>
+                    <span id="descricaoMedicoPopUP"></span>
+                </p>
+        </div>
+        <div id='testeimg' >
+        <div>
+        <p>Exame:</p>
+            <img src="image/image 2.svg" alt="">
+        </div>
+        </div>
+        </div>
+        <div id='botoesHistorico'>
+            <a id='buttonHistorico' href='NotaPessoalMedico.html'>Adicionar nota pessoal</a>
+            <a id='buttonHistorico' href='HistoricopacienteMedico.html'>Ver histórico completo</a>
+            
+        </div>`
+        
+        }
         container.appendChild(div);
+        localStorage.setItem('idConsultaNota', idConsulta);
             document.getElementById('dataPopUPTitle').textContent = consultaEncontrada.data_consulta;
             document.getElementById('especialidadePopUPTitle').textContent = consultaEncontrada.especialidade;
             document.getElementById('nomePacientePopUP').textContent = consultaEncontrada.nome_paciente;
@@ -342,6 +435,43 @@ function abrir(idConsulta){
     }
 }
 
-function fechar(){
-    document.getElementById('popup1').style.display= 'none';
+function fecharPop(){
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('especialidadeButton').style.display = 'block';
+    document.getElementById('especialidade').style.display = 'block';
+    document.getElementById('especialidade').textContent = 'Especialidade: Nenhuma';
+    window.location.reload();
+}
+function adicionarNotaPessoal(){
+    if(document.getElementById('NotaPessoal').value != ''){
+        document.getElementById('msgErro').style.display = 'none';
+        const data = {
+            id: localStorage.getItem('idConsultaNota'),
+            descricao_medico: document.getElementById('NotaPessoal').value
+        };
+        
+        fetch('https://includeapi-production.up.railway.app/descricao', {
+            method: 'PUT',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+            if (response.ok) {
+                window.location.href='perfilDoutor.html';
+            } else {
+                throw new Error('Falha na requisição PUT');
+            }
+            })
+            .then(responseData => {
+            console.log('Resposta da API:', responseData);
+            })
+            .catch(error => {
+            console.error('Erro:', error);
+            });
+        }else{
+            document.getElementById('msgErro').style.display = 'block'; 
+            document.getElementById('msgErro').textContent = 'Precisa escrever uma nota pessoal antes'
+        }
 }

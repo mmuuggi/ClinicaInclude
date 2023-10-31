@@ -35,10 +35,10 @@ public class marcarConsultaController {
         Consultas consultas = new Consultas(consultasRequestDTO);
         consultasRepository.save(consultas);
         List<DiasMedicos> medicos = diasRepository.findByEmail(data.medicoEmail());
-        for(int i = 0; i< medicos.size(); i++){
-            if(Objects.equals(medicos.get(i).getData_consulta(), data.data_consulta())){
-                if(Objects.equals(medicos.get(i).getHora_consulta(), data.hora_consulta())){
-                    diasRepository.deleteById(medicos.get(i).getId());
+        for (DiasMedicos medico : medicos) {
+            if (Objects.equals(medico.getDataConsulta(), data.data_consulta())) {
+                if (Objects.equals(medico.getHora_consulta(), data.hora_consulta())) {
+                    diasRepository.deleteById(medico.getId());
                 }
             }
         }

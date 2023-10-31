@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function (){
     const data = {
         email: localStorage.getItem('aaaaaa')
     };
-    fetch('http://localhost:3000/filtro/teste', {
+    fetch('https://includeapi-production.up.railway.app/filtro/teste', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -15,25 +15,25 @@ document.addEventListener('DOMContentLoaded', function (){
         }
     })
     .then(data =>{
-        document.getElementById('nameMedicoEsp').textContent = data[0].nome;
-
+        let datas = JSON.stringify(data.medicos);
         let container = document.getElementById('containerDataHora');
-
-        let datas = JSON.stringify(data);
-
+        
         let dataH = JSON.parse(datas);
+        document.getElementById('nameMedicoEsp').textContent = 'Dr. ' + dataH[0].nome;
+        localStorage.setItem("medicoNome", dataH[0].nome);
+        localStorage.setItem("medicoEspecialidade", dataH[0].especialidade);
+        localStorage.setItem("medicoEmail", dataH[0].email);
         let mes;
 
         dataH.forEach(dat =>{
-            console.log(1)
             const div = document.createElement('div');
-            let mes = obterNomeDoMes(dat.dataConsulta);
+            mes = obterNomeDoMes(dat.dataConsulta);
             div.innerHTML = `
-            <a href='perfilPaciente.html'>
+            <a onclick="pintarBotao(this)">
             <div>
                 <h2>${dat.dataConsulta}</h2>
                 <h3>${mes}</h3>
-                <p>${dat.hora_consulta}</p>
+                <p id="HoraC" >${dat.hora_consulta}</p>
             </div>
             </a>
             `;

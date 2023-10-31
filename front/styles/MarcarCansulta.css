@@ -555,3 +555,11 @@ textarea::placeholder {
     flex-direction: column;
     align-items: center;
 }
+
+a.selecionado div{
+    background-color: #1D3461;
+}
+#HoraC{
+    color: #00000066;
+
+}

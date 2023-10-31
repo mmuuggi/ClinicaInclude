@@ -21,6 +21,7 @@ function carregarConsultasPacientes() {
     if (consultas) {
         const dataAtual = new Date();
         const dataAtualSemHora = removerHora(dataAtual);
+        
         let consulta = JSON.parse(consultas);
         consulta.forEach(consulta => {
             let dataConsulta = stringParaData(consulta.data_consulta);
@@ -162,6 +163,9 @@ function cancelarConsulta(){
         headers: {
             'Content-type': 'application/json'
         }
+    }).then(response=>{
+        if(response.status == 200){
+            window.location.href = 'perfilPaciente.html';
+        }
     })
-    window.location.href = 'perfilPaciente.html';
 }
