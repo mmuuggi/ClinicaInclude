@@ -69,7 +69,7 @@ function abrir(idConsulta){
             localStorage.setItem('horaMedico1', consultaEncontrada.hora_consulta);
             localStorage.setItem('dataMedico1', consultaEncontrada.data_consulta);
             localStorage.setItem('idMedico1', consultaEncontrada.id);
-            localStorage.setItem('emailMedico1', consultaEncontrada.email_medico);
+            localStorage.setItem('emailMedico1', consultaEncontrada.medicoEmail);
             const div = document.createElement('div');
             div.id = 'popup';
             div.classList.add('examepopup');
