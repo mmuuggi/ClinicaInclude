@@ -346,7 +346,35 @@ body{
 #popup{
     display: none;
 }
-
+.popup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    width: 500px;
+    height: 200px;
+    border-radius: 10px;
+    border: 4px solid #1D3461;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    position: absolute;
+    margin-top: 220px;
+    margin-left: 355px;
+}
+.popup button{
+    width: 254px;
+    height: 64px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    color: #1D3461;
+    text-align: center;
+    font-family: Trebuchet MS;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.75px;
+}
 .t{
     display: flex;
     flex-direction: column;
